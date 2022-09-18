@@ -66,13 +66,12 @@ export const Header = () => {
             </Link>
           </div>
           <div className="">
-            <a
-              href="/"
-              className="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >
-              <BsCart4 />
-              Cart
-            </a>
+            <Link href="/">
+              <a className="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                <BsCart4 />
+                Cart
+              </a>
+            </Link>
           </div>
         </div>
       </div>

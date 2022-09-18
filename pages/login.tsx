@@ -121,7 +121,7 @@ const Login = () => {
                   Login
                 </button>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                  Don't have an account?
+                  Don&apost have an account?
                   <Link href="/register">
                     <a
                       href="#!"

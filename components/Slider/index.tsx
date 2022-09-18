@@ -54,7 +54,7 @@ const products = [
   },
 ];
 
-export const SwiperSlide = (props) => {
+const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center">
       <div className="container bg-white m-1">
@@ -80,3 +80,5 @@ export const SwiperSlide = (props) => {
     </Carousel>
   );
 };
+
+export default Slider;

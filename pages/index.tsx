@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { SwiperSlide } from "../components/SwiperSlide";
+import Slider  from "../components/Slider";
 
 import img1 from "../public/images/hero_bg_2.jpg";
 
@@ -62,7 +62,7 @@ const Home: NextPage = () => {
             </h2>
           </div>
         </div>
-        <SwiperSlide />
+        <Slider />
       </div>
     </div>
   );

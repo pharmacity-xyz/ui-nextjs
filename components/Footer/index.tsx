@@ -39,12 +39,6 @@ export const Footer = () => {
                   Contact
                 </Link>
               </li>
-              {/* <li>
-                <a
-                  href="https://tailwindcss.com/"
-                  className="hover:underline"
-                ></a>
-              </li> */}
             </ul>
           </div>
           <div>

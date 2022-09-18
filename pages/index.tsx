@@ -54,7 +54,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="bg-[#f8f9fa]">
         <div className="my-10">
           <div className="text-center">
             <h2 className="text-3xl">

@@ -3,6 +3,8 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 
 import product1 from "../../public/images/product_01.png";
+import product2 from "../../public/images/product_02.png";
+import product3 from "../../public/images/product_03.png";
 
 import "react-multi-carousel/lib/styles.css";
 
@@ -54,14 +56,27 @@ const products = [
 
 export const SwiperSlide = (props) => {
   return (
-    <Carousel ssr responsive={responsive}>
-      <div className="container border">
-        <Image src={product1} width={100} height={100} />
+    <Carousel ssr responsive={responsive} className="text-center">
+      <div className="container bg-white m-1">
+        <Image src={product1} width={200} height={300} />
+        <h2>Umcka Cold Care</h2>
+        <p>$120.00</p>
       </div>
-      <div>Item 1</div>
-      <div>Item 1</div>
-      <div>Item 1</div>
-      <div>Item 1</div>
+      <div className="container">
+        <Image src={product2} width={200} height={300} />
+        <h2>Umcka Cold Care</h2>
+        <p>$120.00</p>
+      </div>
+      <div className="container">
+        <Image src={product3} width={200} height={300} />
+        <h2>Umcka Cold Care</h2>
+        <p>$120.00</p>
+      </div>
+      <div className="container">
+        <Image src={product1} width={200} height={300} />
+        <h2>Umcka Cold Care</h2>
+        <p>$120.00</p>
+      </div>
     </Carousel>
   );
 };

@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Slider  from "../components/Slider";
+import Slider from "../components/Slider";
 
 import img1 from "../public/images/hero_bg_2.jpg";
 
@@ -63,6 +63,14 @@ const Home: NextPage = () => {
           </div>
         </div>
         <Slider />
+      </div>
+      <div className="bg-green-500 text-white text-center py-10 my-5">
+        <h1 className="w-full text-3xl">Sign up for discount up to 55 % OFF</h1>
+        <p className="w-full py-5">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum
+          voluptates excepturi neque labore 
+        </p>
+        <button className="border border-white px-5 py-1 rounded-md">SIGN UP</button>
       </div>
     </div>
   );

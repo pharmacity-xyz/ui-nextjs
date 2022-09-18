@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import { BsCart4, BsSearch } from "react-icons/bs";
+import { VscTriangleDown } from "react-icons/vsc";
 
 export const Header = () => {
   return (
@@ -32,26 +34,47 @@ export const Header = () => {
           </svg>
         </button>
       </div> */}
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div className="flex items-center border border-white rounded-xl">
         <div className="text-sm lg:flex-grow">
-          <Link href="/">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-              Store
+          <select className="h-8 rounded-l-xl bg-gray-300">
+            <option>All</option>
+            <option>Supplements</option>
+            <option>Vitamins</option>
+            <option>Diet & Dutrition</option>
+            <option>Drinks</option>
+          </select>
+          {/* <Link href="/">
+            <a className="flex items-center mt-4 lg:mt-0 text-teal-200 hover:text-white px-3">
+              All
+              <VscTriangleDown />
             </a>
-          </Link>
-          <Link href="/">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-              Products
-            </a>
-          </Link>
+          </Link> */}
         </div>
-        <div>
-          <a
-            href="/"
-            className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-          >
-            Login
-          </a>
+        <div className="">
+          <input type="text" className="w-96 h-8 l p-4" />
+        </div>
+        <button className="px-4 bg-orange-400 h-8 rounded-r-xl">
+          <BsSearch />
+        </button>
+      </div>
+      <div className="w-full block lg:flex lg:items-center lg:w-auto">
+        <div className="flex gap-4">
+          <div>
+            <Link href="/">
+              <a className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                Login
+              </a>
+            </Link>
+          </div>
+          <div className="">
+            <a
+              href="/"
+              className="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+            >
+              <BsCart4 />
+              Cart
+            </a>
+          </div>
         </div>
       </div>
     </nav>

@@ -5,7 +5,7 @@ import { VscTriangleDown } from "react-icons/vsc";
 
 export const Header = () => {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6 sticky top-0 z-50">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <svg
           className="fill-current h-8 w-8 mr-2"

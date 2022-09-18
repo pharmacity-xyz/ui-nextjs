@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.16"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
+            ["react-multi-carousel", "npm:2.8.2"],\
             ["tailwindcss", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.8"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
@@ -3161,6 +3162,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.16"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
+            ["react-multi-carousel", "npm:2.8.2"],\
             ["tailwindcss", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.8"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
@@ -3455,6 +3457,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
           "packageDependencies": [\
             ["react-is", "npm:16.13.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-multi-carousel", [\
+        ["npm:2.8.2", {\
+          "packageLocation": "./.yarn/cache/react-multi-carousel-npm-2.8.2-2629689a5a-95a77120ec.zip/node_modules/react-multi-carousel/",\
+          "packageDependencies": [\
+            ["react-multi-carousel", "npm:2.8.2"]\
           ],\
           "linkType": "HARD"\
         }]\

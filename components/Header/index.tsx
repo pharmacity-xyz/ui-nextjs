@@ -32,7 +32,7 @@ export const Header = () => {
         <div className="text-sm lg:flex-grow">
           <Link href="/">
             <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-             Home 
+              Home
             </a>
           </Link>
           <Link href="/">
@@ -45,7 +45,7 @@ export const Header = () => {
               Products
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/about">
             <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
               About
             </a>

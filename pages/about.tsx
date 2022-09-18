@@ -8,17 +8,20 @@ import person3 from "../public/images/person_3.jpg";
 
 const introductions = [
   {
+    id: 1,
     title: "Why Us",
     detail:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae nisi magni in fugit, ad laudantium.",
   },
 
   {
+    id: 2,
     title: "History",
     detail:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae nisi magni in fugit, ad laudantium.",
   },
   {
+    id: 3,
     title: "Awards",
     detail:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae nisi magni in fugit, ad laudantium.",
@@ -27,14 +30,17 @@ const introductions = [
 
 const teams = [
   {
+    id: 1,
     image: person1,
     name: "Elizabeth Graham",
   },
   {
+    id: 2,
     image: person2,
     name: "Patrick Marx",
   },
   {
+    id: 3,
     image: person3,
     name: "Mike Coolbert",
   },

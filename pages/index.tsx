@@ -8,18 +8,21 @@ import img1 from "../public/images/hero_bg_2.jpg";
 
 const instroductions = [
   {
+    id: 1,
     title: "Free Delivery",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
     loadMore: "/free",
   },
   {
+    id: 2,
     title: "New Medicine Everyday",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
     loadMore: "/new-medicine-everyday",
   },
   {
+    id: 3,
     title: "Medicines Guaranteed",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",

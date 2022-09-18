@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import { BsCart4, BsSearch } from "react-icons/bs";
-import { VscTriangleDown } from "react-icons/vsc";
 
 export const Header = () => {
   return (

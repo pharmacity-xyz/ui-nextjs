@@ -29,12 +29,22 @@ export const Footer = () => {
                   Pharmacity
                 </Link>
               </li>
-              <li>
+              <li className="mb-4">
+                <Link href="/about" className="hover:underline">
+                  About
+                </Link>
+              </li>
+              <li className="mb-4">
+                <Link href="/contact" className="hover:underline">
+                  Contact
+                </Link>
+              </li>
+              {/* <li>
                 <a
                   href="https://tailwindcss.com/"
                   className="hover:underline"
                 ></a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>

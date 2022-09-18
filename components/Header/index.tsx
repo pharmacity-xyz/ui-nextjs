@@ -45,16 +45,6 @@ export const Header = () => {
               Products
             </a>
           </Link>
-          <Link href="/about">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-              About
-            </a>
-          </Link>
-          <Link href="/contact">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-              Contact
-            </a>
-          </Link>
         </div>
         <div>
           <a

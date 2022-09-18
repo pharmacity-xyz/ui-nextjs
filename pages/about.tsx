@@ -53,7 +53,7 @@ const About: NextPage = () => {
         <div className="container  px-4">
           <div className="grid grid-cols-3 gap-3">
             {introductions.map((introduction) => (
-              <div className="w-full px-10 py-5">
+              <div key={introduction.id} className="w-full px-10 py-5">
                 <span className=""></span>
                 <h3 className="text-black font-sm text-2xl mb-2">
                   {introduction.title}
@@ -70,7 +70,7 @@ const About: NextPage = () => {
         </div>
         <div className="grid grid-cols-3 gap-3">
           {teams.map((person) => (
-            <div className="w-full px-10 py-5 text-center">
+            <div key={person.id} className="w-full px-10 py-5 text-center">
               <span className=""></span>
               <Image src={person.image} width={200} height={200} />
               <h3 className="text-black font-sm text-lg mb-2">{person.name}</h3>

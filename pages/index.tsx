@@ -6,7 +6,7 @@ import Slider from "../components/Slider";
 
 import img1 from "../public/images/hero_bg_2.jpg";
 
-const instroductions = [
+const introductions = [
   {
     id: 1,
     title: "Free Delivery",
@@ -39,8 +39,8 @@ const Home: NextPage = () => {
       <div className="py-5">
         <div className="container  px-4">
           <div className="grid grid-cols-3 gap-3">
-            {instroductions.map((introduction) => (
-              <div className="w-full text-center border rounded-md p-3">
+            {introductions.map((introduction) => (
+              <div key={introduction.id} className="w-full text-center border rounded-md p-3">
                 <span className=""></span>
                 <h3 className="text-[#75b239] font-medium text-xl">
                   {introduction.title}

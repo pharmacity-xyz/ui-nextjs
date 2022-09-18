@@ -253,7 +253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.20":
+"@types/react@npm:*, @types/react@npm:^18.0.20":
   version: 18.0.20
   resolution: "@types/react@npm:18.0.20"
   dependencies:
@@ -1863,7 +1863,7 @@ __metadata:
   resolution: "pharmacity-ui-v1@workspace:."
   dependencies:
     "@types/node": 18.7.18
-    "@types/react": 18.0.20
+    "@types/react": ^18.0.20
     "@types/react-dom": 18.0.6
     eslint: 8.23.1
     eslint-config-next: 12.3.0

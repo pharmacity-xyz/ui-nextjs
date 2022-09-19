@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <Image src={img1} width={500} height={200} layout="responsive" />
       </div>
       <div className="py-5">
-        <div className="container  px-4">
+        <div className="px-4">
           <div className="grid grid-cols-3 gap-3">
             {introductions.map((introduction) => (
               <div key={introduction.id} className="w-full text-center border rounded-md p-3">
@@ -46,12 +46,6 @@ const Home: NextPage = () => {
                   {introduction.title}
                 </h3>
                 <p>{introduction.detail}</p>
-                {/* <p>
-                <Link href={introduction.loadMore} className="d-fkex align-items-center">
-                  <span className="mr-2">Learn more</span>{" "}
-                  <span className="icon-keyboard_arrow_right"></span>
-                </Link>
-              </p> */}
               </div>
             ))}
           </div>

@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <Image src={img1} width={500} height={200} layout="responsive" />
       </div>
       <div className="py-5">
-        <div className="px-4">
+        <div className="">
           <div className="grid grid-cols-3 gap-3">
             {introductions.map((introduction) => (
               <div key={introduction.id} className="w-full text-center border rounded-md p-3">

@@ -22,11 +22,6 @@ const ProductDetail: NextPage = () => {
   const { id } = router.query
 
   useState(() => {
-    // products.map((iterProduct) => {
-    //   if (iterProduct.id === id) {
-
-    //   }
-    // });
     setProduct({
       id: 'ghhgurghrg',
       name: 'Ibuprofen Tablets',
@@ -71,6 +66,18 @@ const ProductDetail: NextPage = () => {
           <button className="text-white bg-[#75b239] px-6 py-5 rounded-md mt-10">
             ADD TO CART
           </button>
+        </div>
+      </div>
+      <div>
+        <h1>Product Information</h1>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Brand</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </>

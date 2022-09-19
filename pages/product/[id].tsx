@@ -39,6 +39,8 @@ const ProductDetail: NextPage = () => {
   });
 
   return (
+    <>
+
     <div className="grid grid-cols-2 mt-20">
       <Image src={product1Img} width="500" height="500" />
       <div>
@@ -72,6 +74,7 @@ const ProductDetail: NextPage = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

@@ -40,7 +40,10 @@ const Home: NextPage = () => {
         <div className="">
           <div className="grid grid-cols-3 gap-3">
             {introductions.map((introduction) => (
-              <div key={introduction.id} className="w-full text-center border rounded-md p-3">
+              <div
+                key={introduction.id}
+                className="w-full text-center border rounded-md p-3"
+              >
                 <span className=""></span>
                 <h3 className="text-[#75b239] font-medium text-xl">
                   {introduction.title}
@@ -65,9 +68,11 @@ const Home: NextPage = () => {
         <h1 className="w-full text-3xl">Sign up for discount up to 55 % OFF</h1>
         <p className="w-full py-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum
-          voluptates excepturi neque labore 
+          voluptates excepturi neque labore
         </p>
-        <button className="border border-white px-5 py-1 rounded-md">SIGN UP</button>
+        <button className="border border-white px-5 py-1 rounded-md">
+          SIGN UP
+        </button>
       </div>
     </div>
   );

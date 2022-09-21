@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Massage chair",
+    "img": "/images/massage_chair.jpg",
+    "link": "/"
+  },
+  {
+    "id": 2,
+    "name": "Small Massager",
+    "img": "/images/foot_massage.jpg",
+    "link": "/"
+  },
+  {
+    "id": 3,
+    "name": "Relaxation Item",
+    "img": "/images/relaxation_device.jpg",
+    "link": "/"
+  },
+  {
+    "id": 4,
+    "name": "Fitness",
+    "img": "/images/fitness.jpg",
+    "link": "/"
+  },
+  {
+    "id": 5,
+    "name": "Small Massager",
+    "img": "/images/foot_massage.jpg",
+    "link": "/"
+  },
+  {
+    "id": 6,
+    "name": "Relaxation Item",
+    "img": "/images/relaxation_device.jpg",
+    "link": "/"
+  }
+]

@@ -8,6 +8,8 @@ import Slider from '../components/Slider'
 import scheduleVaccineImg from '../public/images/schedule_vaccine.png'
 import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
 import doctorImg from '../public/images/doctor.png'
+import productList from '../datas/productList.json'
+import massageChairImg from '../public/images/cat_massagechair_02.jpg'
 
 const covid19Rows = [
   {
@@ -55,20 +57,34 @@ const Home: NextPage = () => {
         <div className="my-10">
           <div className="flex justify-between items-center px-8">
             <h2 className="text-3xl">
-              <strong className="text-[#75b239]">Featured Products</strong>
+              <strong className="text-[#75b239]">Product List</strong>
             </h2>
-            <Link href="">See all</Link>
+          </div>
+          <div className="px-8 pt-6">
+            <hr />
           </div>
         </div>
-        <Slider />
+        <div className="grid grid-cols-3 gap-3 justify-items-center">
+          {productList.map((product) => (
+            <div key={product.id} className="grid">
+              <Image src={product.img} width="200" height="200" />
+              <Link href={product.link}>
+                <a className="text-center py-4">{product.name}</a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="">
         <div className="my-10">
           <div className="flex justify-between items-center px-8">
             <h2 className="text-3xl">
-              <strong className="text-[#75b239]">Categories</strong>
+              <strong className="text-[#75b239]">Featured Products</strong>
             </h2>
             <Link href="">See all</Link>
+          </div>
+          <div className="px-8 py-6">
+            <hr />
           </div>
         </div>
         <Slider />

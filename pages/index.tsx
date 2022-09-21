@@ -1,34 +1,34 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Slider from "../components/Slider";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import Slider from '../components/Slider'
 
-import img1 from "../public/images/hero_bg_2.jpg";
+import img1 from '../public/images/hero_bg_2.jpg'
 
 const introductions = [
   {
     id: 1,
-    title: "Free Delivery",
+    title: 'Free Delivery',
     detail:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
-    loadMore: "/free",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .',
+    loadMore: '/free',
   },
   {
     id: 2,
-    title: "New Medicine Everyday",
+    title: 'New Medicine Everyday',
     detail:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
-    loadMore: "/new-medicine-everyday",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .',
+    loadMore: '/new-medicine-everyday',
   },
   {
     id: 3,
-    title: "Medicines Guaranteed",
+    title: 'Medicines Guaranteed',
     detail:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
-    loadMore: "/medicines-guranteed",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .',
+    loadMore: '/medicines-guranteed',
   },
-];
+]
 
 const Home: NextPage = () => {
   return (
@@ -56,10 +56,22 @@ const Home: NextPage = () => {
       </div>
       <div className="bg-[#f8f9fa]">
         <div className="my-10">
-          <div className="text-center">
+          <div className="flex justify-between items-center px-8">
             <h2 className="text-3xl">
-              Pharmacy <strong className="text-[#75b239]">Products</strong>
+              <strong className="text-[#75b239]">Featured Products</strong>
             </h2>
+            <Link href="">See all</Link>
+          </div>
+        </div>
+        <Slider />
+      </div>
+      <div className="bg-[#f8f9fa]">
+        <div className="my-10">
+          <div className="flex justify-between items-center px-8">
+            <h2 className="text-3xl">
+              <strong className="text-[#75b239]">Categories</strong>
+            </h2>
+            <Link href="">See all</Link>
           </div>
         </div>
         <Slider />
@@ -75,7 +87,7 @@ const Home: NextPage = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

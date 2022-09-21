@@ -1,76 +1,108 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Slider from "../components/Slider";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import { BsInfoCircle } from 'react-icons/bs'
 
-import img1 from "../public/images/hero_bg_2.jpg";
+import Slider from '../components/Slider'
+import scheduleVaccineImg from '../public/images/schedule_vaccine.png'
+import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
+import doctorImg from '../public/images/doctor.png'
+import productList from '../datas/productList.json'
+import massageChairImg from '../public/images/cat_massagechair_02.jpg'
 
-const introductions = [
+const covid19Rows = [
   {
     id: 1,
-    title: "Free Delivery",
-    detail:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
-    loadMore: "/free",
+    img: scheduleVaccineImg,
+    name: 'Medicine',
   },
   {
     id: 2,
-    title: "New Medicine Everyday",
-    detail:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
-    loadMore: "/new-medicine-everyday",
+    img: fluShotsAreHereImg,
+    name: 'Vaccination',
   },
   {
     id: 3,
-    title: "Medicines Guaranteed",
-    detail:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum voluptates excepturi neque labore .",
-    loadMore: "/medicines-guranteed",
+    img: doctorImg,
+    name: 'Doctor',
   },
-];
+]
 
 const Home: NextPage = () => {
   return (
     <div>
-      <div className="w-full h-1/4">
-        <Image src={img1} width={500} height={200} layout="responsive" />
-      </div>
-      <div className="py-5">
-        <div className="">
-          <div className="grid grid-cols-3 gap-3">
-            {introductions.map((introduction) => (
-              <div key={introduction.id} className="w-full text-center border rounded-md p-3">
-                <span className=""></span>
-                <h3 className="text-[#75b239] font-medium text-xl">
-                  {introduction.title}
-                </h3>
-                <p>{introduction.detail}</p>
+      <div className="">
+        <div className="flex px-20 py-8">
+          <BsInfoCircle className="text-2xl mr-2" />
+          <p className="text-lg">
+            Get vaccinated. Vaccines are widely available. COVID-19 affects
+            different people in different ways. Infected people have had a wide
+            range of symptoms reported – from mild symptoms to severe illness.
+          </p>
+        </div>
+        <div className="flex items-center bg-[#F5f5f0] py-8 px-10">
+          <h1 className="text-4xl w-1/3">COVID-19</h1>
+          <div className="flex justify-around w-2/3">
+            {covid19Rows.map((row) => (
+              <div key={row.id} className="text-center">
+                <Image src={row.img} width="100" height="100" />
+                <h5>{row.name}</h5>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="bg-[#f8f9fa]">
+      <div className="">
         <div className="my-10">
-          <div className="text-center">
+          <div className="flex justify-between items-center px-8">
             <h2 className="text-3xl">
-              Pharmacy <strong className="text-[#75b239]">Products</strong>
+              <strong className="text-[#75b239]">Product List</strong>
             </h2>
+          </div>
+          <div className="px-8 pt-6">
+            <hr />
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-3 justify-items-center">
+          {productList.map((product) => (
+            <div key={product.id} className="grid">
+              <Image src={product.img} width="200" height="200" />
+              <Link href={product.link}>
+                <a className="text-center py-4 hover:underline">{product.name}</a>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="">
+        <div className="my-10">
+          <div className="flex justify-between items-center px-8">
+            <h2 className="text-3xl">
+              <strong className="text-[#75b239]">Featured Products</strong>
+            </h2>
+            <Link href="">See all</Link>
+          </div>
+          <div className="px-8 py-6">
+            <hr />
           </div>
         </div>
         <Slider />
       </div>
-      <div className="bg-green-500 text-white text-center py-10 my-5">
-        <h1 className="w-full text-3xl">Sign up for discount up to 55 % OFF</h1>
+      <div className="bg-green-500 text-white text-center py-10 mt-5">
+        <h1 className="w-full text-3xl">Sign up for discount up to 50 % OFF</h1>
         <p className="w-full py-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum
-          voluptates excepturi neque labore 
+          voluptates excepturi neque labore
         </p>
-        <button className="border border-white px-5 py-1 rounded-md">SIGN UP</button>
+        <Link href="/register">
+          <button className="border border-white px-5 py-1 rounded-md">
+            SIGN UP
+          </button>
+        </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

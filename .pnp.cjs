@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:12.3.0"],\
             ["next", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:12.3.0"],\
             ["postcss", "npm:8.4.16"],\
+            ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
             ["react-icons", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:4.4.0"],\
@@ -66,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@babel-runtime-corejs3-npm-7.19.1-b2dd8d7c1e-38a1e8fcd2.zip/node_modules/@babel/runtime-corejs3/",\
           "packageDependencies": [\
             ["@babel/runtime-corejs3", "npm:7.19.1"],\
-            ["core-js-pure", "npm:3.25.1"],\
+            ["core-js-pure", "npm:3.25.2"],\
             ["regenerator-runtime", "npm:0.13.9"]\
           ],\
           "linkType": "HARD"\
@@ -768,7 +769,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:10.4.11"],\
             ["@types/postcss", null],\
             ["browserslist", "npm:4.21.4"],\
-            ["caniuse-lite", "npm:1.0.30001402"],\
+            ["caniuse-lite", "npm:1.0.30001406"],\
             ["fraction.js", "npm:4.2.0"],\
             ["normalize-range", "npm:0.1.2"],\
             ["picocolors", "npm:1.0.0"],\
@@ -852,7 +853,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/browserslist-npm-4.21.4-7d64a96afc-4af3793704.zip/node_modules/browserslist/",\
           "packageDependencies": [\
             ["browserslist", "npm:4.21.4"],\
-            ["caniuse-lite", "npm:1.0.30001402"],\
+            ["caniuse-lite", "npm:1.0.30001406"],\
             ["electron-to-chromium", "npm:1.4.254"],\
             ["node-releases", "npm:2.0.6"],\
             ["update-browserslist-db", "virtual:7d64a96afc8cf9b31b95951ccc2f47931d0cf97faa526fd0d20448bf2c73ddf9f5ef9e5cd28839ae8b5791451df45079a407b3f4978367b4210748169f5848f6#npm:1.0.9"]\
@@ -917,10 +918,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["caniuse-lite", [\
-        ["npm:1.0.30001402", {\
-          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001402-4cebb8781b-6068ccccd6.zip/node_modules/caniuse-lite/",\
+        ["npm:1.0.30001406", {\
+          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001406-ef77292316-1ae9701f0c.zip/node_modules/caniuse-lite/",\
           "packageDependencies": [\
-            ["caniuse-lite", "npm:1.0.30001402"]\
+            ["caniuse-lite", "npm:1.0.30001406"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1018,10 +1019,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["core-js-pure", [\
-        ["npm:3.25.1", {\
-          "packageLocation": "./.yarn/unplugged/core-js-pure-npm-3.25.1-234b6b9f3b/node_modules/core-js-pure/",\
+        ["npm:3.25.2", {\
+          "packageLocation": "./.yarn/unplugged/core-js-pure-npm-3.25.2-0212698e06/node_modules/core-js-pure/",\
           "packageDependencies": [\
-            ["core-js-pure", "npm:3.25.1"]\
+            ["core-js-pure", "npm:3.25.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2848,7 +2849,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.20"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/sass", null],\
-            ["caniuse-lite", "npm:1.0.30001402"],\
+            ["caniuse-lite", "npm:1.0.30001406"],\
             ["fibers", null],\
             ["node-sass", null],\
             ["postcss", "npm:8.4.14"],\
@@ -3161,6 +3162,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:12.3.0"],\
             ["next", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:12.3.0"],\
             ["postcss", "npm:8.4.16"],\
+            ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
             ["react-icons", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:4.4.0"],\
@@ -3344,6 +3346,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/prelude-ls-npm-1.2.1-3e4d272a55-cd192ec0d0.zip/node_modules/prelude-ls/",\
           "packageDependencies": [\
             ["prelude-ls", "npm:1.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["prettier", [\
+        ["npm:2.7.1", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.7.1-d1f40f5e1a-55a4409182.zip/node_modules/prettier/",\
+          "packageDependencies": [\
+            ["prettier", "npm:2.7.1"]\
           ],\
           "linkType": "HARD"\
         }]\

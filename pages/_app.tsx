@@ -7,7 +7,7 @@ import { Header } from "../components/Header";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <div className="px-12">
+      <div className="">
         <Header />
         <Component {...pageProps} />
         <Footer />

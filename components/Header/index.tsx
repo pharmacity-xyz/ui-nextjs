@@ -50,7 +50,7 @@ export const Header = () => {
           </Link> */}
         </div>
         <div className="">
-          <input type="text" className="w-96 h-8 l p-4" />
+          <input type="text" placeholder="Search" className="w-96 h-8 l p-4" />
         </div>
         <button className="px-4 bg-orange-400 h-8 rounded-r-xl">
           <BsSearch />

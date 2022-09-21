@@ -5,24 +5,26 @@ import Link from 'next/link'
 import Slider from '../components/Slider'
 
 import scheduleVaccineImg from '../public/images/schedule_vaccine.png'
+import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
+import doctorImg from '../public/images/doctor.png'
 
 const Home: NextPage = () => {
   return (
     <div>
       <div className="flex items-center bg-[#F5f5f0] py-8 px-10">
-        <h1 className="text-4xl w-1/3">About COVID-19</h1>
+        <h1 className="text-4xl w-1/3">COVID-19</h1>
         <div className="flex justify-around w-2/3">
           <div className="text-center">
             <Image src={scheduleVaccineImg} width="100" height="100" />
-            <h5>Vaccine</h5>
+            <h5>Medicine</h5>
           </div>
           <div className="text-center">
-            <Image src={scheduleVaccineImg} width="100" height="100" />
-            <h5>Flu shots are here</h5>
+            <Image src={fluShotsAreHereImg} width="100" height="100" />
+            <h5>Vaccination</h5>
           </div>
           <div className="text-center">
-            <Image src={scheduleVaccineImg} width="100" height="100" />
-            <h5>COVID-19 testing options</h5>
+            <Image src={doctorImg} width="100" height="100" />
+            <h5>Doctor</h5>
           </div>
         </div>
       </div>

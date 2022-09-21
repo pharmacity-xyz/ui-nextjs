@@ -69,7 +69,7 @@ const Home: NextPage = () => {
             <div key={product.id} className="grid">
               <Image src={product.img} width="200" height="200" />
               <Link href={product.link}>
-                <a className="text-center py-4">{product.name}</a>
+                <a className="text-center py-4 hover:underline">{product.name}</a>
               </Link>
             </div>
           ))}
@@ -90,7 +90,7 @@ const Home: NextPage = () => {
         <Slider />
       </div>
       <div className="bg-green-500 text-white text-center py-10 mt-5">
-        <h1 className="w-full text-3xl">Sign up for discount up to 55 % OFF</h1>
+        <h1 className="w-full text-3xl">Sign up for discount up to 50 % OFF</h1>
         <p className="w-full py-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum
           voluptates excepturi neque labore

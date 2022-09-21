@@ -25,14 +25,8 @@
   },
   {
     "id": 5,
-    "name": "Small Massager",
-    "img": "/images/foot_massage.jpg",
-    "link": "/"
-  },
-  {
-    "id": 6,
-    "name": "Relaxation Item",
-    "img": "/images/relaxation_device.jpg",
+    "name": "Sale",
+    "img": "/images/sale.png",
     "link": "/"
   }
 ]

@@ -58,22 +58,22 @@ const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center">
       <div className="container bg-white m-1">
-        <Image src={product1} width={200} height={300} />
+        <Image src={product1} width={100} height={200} />
         <h2>Umcka Cold Care</h2>
         <p>$120.00</p>
       </div>
       <div className="container">
-        <Image src={product2} width={200} height={300} />
+        <Image src={product2} width={100} height={200} />
         <h2>Umcka Cold Care</h2>
         <p>$120.00</p>
       </div>
       <div className="container">
-        <Image src={product3} width={200} height={300} />
+        <Image src={product3} width={100} height={200} />
         <h2>Umcka Cold Care</h2>
         <p>$120.00</p>
       </div>
       <div className="container">
-        <Image src={product1} width={200} height={300} />
+        <Image src={product1} width={100} height={200} />
         <h2>Umcka Cold Care</h2>
         <p>$120.00</p>
       </div>

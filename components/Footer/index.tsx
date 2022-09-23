@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 export const Footer = () => {
   return (
@@ -24,20 +24,14 @@ export const Footer = () => {
               Resources
             </h2>
             <ul className="text-gray-600 dark:text-gray-400">
-              <li className="mb-4">
-                <Link href="/" className="hover:underline">
-                  Pharmacity
-                </Link>
+              <li className="mb-4 hover:underline">
+                <Link href="/">Pharmacity</Link>
               </li>
-              <li className="mb-4">
-                <Link href="/about" className="hover:underline">
-                  About
-                </Link>
+              <li className="mb-4 hover:underline">
+                <Link href="/about">About</Link>
               </li>
-              <li className="mb-4">
-                <Link href="/contact" className="hover:underline">
-                  Contact
-                </Link>
+              <li className="mb-4 hover:underline">
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -63,15 +57,11 @@ export const Footer = () => {
               Legal
             </h2>
             <ul className="text-gray-600 dark:text-gray-400">
-              <li className="mb-4">
-                <Link href="/" className="hover:underline">
-                  Privacy Policy
-                </Link>
+              <li className="mb-4 hover:underline">
+                <Link href="/">Privacy Policy</Link>
               </li>
-              <li>
-                <Link href="/" className="hover:underline">
-                  Terms &amp; Conditions
-                </Link>
+              <li className="hover:underline">
+                <Link href="/">Terms &amp; Conditions</Link>
               </li>
             </ul>
           </div>
@@ -80,7 +70,7 @@ export const Footer = () => {
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2022{" "}
+          © 2022{' '}
           <Link href="/" className="hover:underline">
             Pharmacity
           </Link>
@@ -158,5 +148,5 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}

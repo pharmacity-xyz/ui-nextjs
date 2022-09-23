@@ -58,34 +58,15 @@ const products = [
 const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center z-10">
-      <Link href={'/product/1'}>
-        <div className="container m-1 cursor-pointer hover:scale-105 transform">
-          <Image src={product1} width={100} height={200} />
-          <h2 className="text-lg">Umcka Cold Care</h2>
-          <p>$120.00</p>
-        </div>
-      </Link>
-      <Link href={'/product/1'}>
-        <div className="container cursor-pointer hover:scale-105 transform">
-          <Image src={product2} width={100} height={200} />
-          <h2 className="text-lg">Umcka Cold Care</h2>
-          <p>$120.00</p>
-        </div>
-      </Link>
-      <Link href={'/product/1'}>
-        <div className="container cursor-pointer hover:scale-105 transform">
-          <Image src={product3} width={100} height={200} />
-          <h2 className="text-lg">Umcka Cold Care</h2>
-          <p>$120.00</p>
-        </div>
-      </Link>
-      <Link href={'/product/1'}>
-        <div className="container cursor-pointer hover:scale-105 transform">
-          <Image src={product1} width={100} height={200} />
-          <h2 className="text-lg">Umcka Cold Care</h2>
-          <p>$120.00</p>
-        </div>
-      </Link>
+      {products.map((product) => (
+        <Link href={'/product/1'}>
+          <div className="container m-1 cursor-pointer hover:scale-105 transform">
+            <Image src={product.image} width={100} height={200} />
+            <h2 className="text-lg">{product.name}</h2>
+            <p>$ {product.price}</p>
+          </div>
+        </Link>
+      ))}
     </Carousel>
   )
 }

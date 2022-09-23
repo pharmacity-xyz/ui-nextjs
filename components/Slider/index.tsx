@@ -56,7 +56,7 @@ const products = [
 
 const Slider = (props) => {
   return (
-    <Carousel ssr responsive={responsive} className="text-center">
+    <Carousel ssr responsive={responsive} className="text-center z-10">
       <div className="container bg-white m-1">
         <Image src={product1} width={100} height={200} />
         <h2>Umcka Cold Care</h2>

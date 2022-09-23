@@ -32,26 +32,31 @@ const products = [
     image: product1,
     name: 'Umcka Cold Care',
     price: 120.0,
+    link: '/product/1',
   },
   {
     image: product2,
     name: 'Umcka Cold Care',
     price: 100.0,
+    link: '/product/2',
   },
   {
     image: product3,
     name: 'Umcka Cold Care',
     price: 200.0,
+    link: '/product/3',
   },
   {
     image: product1,
     name: 'Umcka Cold Care',
     price: 250.0,
+    link: '/product/1',
   },
   {
     image: product1,
     name: 'Umcka Cold Care',
     price: 120.0,
+    link: '/product/1',
   },
 ]
 
@@ -59,7 +64,7 @@ const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center z-10">
       {products.map((product) => (
-        <Link href={'/product/1'}>
+        <Link href={product.link}>
           <div className="container m-1 cursor-pointer hover:scale-105 transform">
             <Image src={product.image} width={100} height={200} />
             <h2 className="text-lg">{product.name}</h2>

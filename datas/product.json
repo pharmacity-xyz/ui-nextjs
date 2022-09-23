@@ -5,7 +5,7 @@
     "category": 1,
     "price": 120.0,
     "detail": "",
-    "image": "../public/images/product_01.png"
+    "image": "/images/product_01.png"
   },
   {
     "pid": "gjlglkgkgldg2",
@@ -13,7 +13,7 @@
     "category": 2,
     "price": 120.0,
     "detail": "",
-    "image": "../public/images/product_02.png"
+    "image": "/images/product_02.png"
   },
   {
     "pid": "dgjjgldhgldjgk3",
@@ -21,6 +21,6 @@
     "category": 3,
     "price": 120.0,
     "detail": "",
-    "image": "../public/images/product_03.png"
+    "image": "/images/product_03.png"
   }
 ]

@@ -1,12 +1,13 @@
-import Image from "next/image";
-import React from "react";
-import Carousel from "react-multi-carousel";
+import Image from 'next/image'
+import React from 'react'
+import Carousel from 'react-multi-carousel'
 
-import product1 from "../../public/images/product_01.png";
-import product2 from "../../public/images/product_02.png";
-import product3 from "../../public/images/product_03.png";
+import product1 from '../../public/images/product_01.png'
+import product2 from '../../public/images/product_02.png'
+import product3 from '../../public/images/product_03.png'
 
-import "react-multi-carousel/lib/styles.css";
+import 'react-multi-carousel/lib/styles.css'
+import Link from 'next/link'
 
 const responsive = {
   desktop: {
@@ -24,61 +25,69 @@ const responsive = {
     items: 1,
     slidesToSlide: 1,
   },
-};
+}
 
 const products = [
   {
     image: product1,
-    name: "Umcka Cold Care",
+    name: 'Umcka Cold Care',
     price: 120.0,
   },
   {
     image: product1,
-    name: "Umcka Cold Care",
+    name: 'Umcka Cold Care',
     price: 120.0,
   },
   {
     image: product1,
-    name: "Umcka Cold Care",
+    name: 'Umcka Cold Care',
     price: 120.0,
   },
   {
     image: product1,
-    name: "Umcka Cold Care",
+    name: 'Umcka Cold Care',
     price: 120.0,
   },
   {
     image: product1,
-    name: "Umcka Cold Care",
+    name: 'Umcka Cold Care',
     price: 120.0,
   },
-];
+]
 
 const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center z-10">
-      <div className="container bg-white m-1">
-        <Image src={product1} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-      <div className="container">
-        <Image src={product2} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-      <div className="container">
-        <Image src={product3} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-      <div className="container">
-        <Image src={product1} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
+      <Link href={'/product/1'}>
+        <div className="container m-1 cursor-pointer">
+          <Image src={product1} width={100} height={200} />
+          <h2>Umcka Cold Care</h2>
+          <p>$120.00</p>
+        </div>
+      </Link>
+      <Link href={'/product/1'}>
+        <div className="container cursor-pointer">
+          <Image src={product2} width={100} height={200} />
+          <h2>Umcka Cold Care</h2>
+          <p>$120.00</p>
+        </div>
+      </Link>
+      <Link href={'/product/1'}>
+        <div className="container cursor-pointer">
+          <Image src={product3} width={100} height={200} />
+          <h2>Umcka Cold Care</h2>
+          <p>$120.00</p>
+        </div>
+      </Link>
+      <Link href={'/product/1'}>
+        <div className="container cursor-pointer">
+          <Image src={product1} width={100} height={200} />
+          <h2>Umcka Cold Care</h2>
+          <p>$120.00</p>
+        </div>
+      </Link>
     </Carousel>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider

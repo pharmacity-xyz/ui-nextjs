@@ -34,19 +34,19 @@ const products = [
     price: 120.0,
   },
   {
-    image: product1,
+    image: product2,
     name: 'Umcka Cold Care',
-    price: 120.0,
+    price: 100.0,
+  },
+  {
+    image: product3,
+    name: 'Umcka Cold Care',
+    price: 200.0,
   },
   {
     image: product1,
     name: 'Umcka Cold Care',
-    price: 120.0,
-  },
-  {
-    image: product1,
-    name: 'Umcka Cold Care',
-    price: 120.0,
+    price: 250.0,
   },
   {
     image: product1,

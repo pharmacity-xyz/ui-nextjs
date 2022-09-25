@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
+import Link from 'next/link'
 
-import product1 from '../../public/images/product_01.png'
-import product2 from '../../public/images/product_02.png'
-import product3 from '../../public/images/product_03.png'
+import featuredProducts from '../../datas/featuredProducts.json'
 
 import 'react-multi-carousel/lib/styles.css'
-import Link from 'next/link'
 
 const responsive = {
   desktop: {
@@ -27,43 +25,10 @@ const responsive = {
   },
 }
 
-const products = [
-  {
-    image: product1,
-    name: 'Umcka Cold Care',
-    price: 120.0,
-    link: '/product/1',
-  },
-  {
-    image: product2,
-    name: 'Umcka Cold Care',
-    price: 100.0,
-    link: '/product/2',
-  },
-  {
-    image: product3,
-    name: 'Umcka Cold Care',
-    price: 200.0,
-    link: '/product/3',
-  },
-  {
-    image: product1,
-    name: 'Umcka Cold Care',
-    price: 250.0,
-    link: '/product/1',
-  },
-  {
-    image: product1,
-    name: 'Umcka Cold Care',
-    price: 120.0,
-    link: '/product/1',
-  },
-]
-
 const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center z-10">
-      {products.map((product) => (
+      {featuredProducts.map((product) => (
         <Link href={product.link}>
           <div className="container m-1 cursor-pointer hover:scale-105 transform">
             <Image src={product.image} width={100} height={200} />

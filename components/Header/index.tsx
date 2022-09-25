@@ -1,6 +1,6 @@
-import Link from "next/link";
-import React from "react";
-import { BsCart4, BsSearch } from "react-icons/bs";
+import Link from 'next/link'
+import React from 'react'
+import { BsCart4, BsSearch } from 'react-icons/bs'
 
 export const Header = () => {
   return (
@@ -42,12 +42,6 @@ export const Header = () => {
             <option>Diet & Dutrition</option>
             <option>Drinks</option>
           </select>
-          {/* <Link href="/">
-            <a className="flex items-center mt-4 lg:mt-0 text-teal-200 hover:text-white px-3">
-              All
-              <VscTriangleDown />
-            </a>
-          </Link> */}
         </div>
         <div className="">
           <input type="text" placeholder="Search" className="w-96 h-8 l p-4" />
@@ -76,5 +70,5 @@ export const Header = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}

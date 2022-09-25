@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "BIODERMA",
     "category": 1,
     "price": 120.0,
@@ -8,7 +8,7 @@
     "image": "/images/product_01.png"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Chanca Pedra",
     "category": 2,
     "price": 120.0,
@@ -16,7 +16,7 @@
     "image": "/images/product_02.png"
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "Umcka Coldcare",
     "category": 3,
     "price": 120.0,

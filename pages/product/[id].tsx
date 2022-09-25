@@ -1,9 +1,10 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import products from '../../datas/product.json'
+import { getProductById } from '../../lib/api'
+import featuredProducts from '../../datas/featuredProducts.json'
 import product1Img from '../../public/images/product_01.png'
 
 interface IProduct {
@@ -22,6 +23,10 @@ const ProductDetail: NextPage = () => {
   const { id } = router.query
 
   useState(() => {
+    // featuredProducts.map((product) => {
+    //   if (id === product.id) {
+    //   }
+    // })
     setProduct({
       id: 'ghhgurghrg',
       name: 'Ibuprofen Tablets',
@@ -85,3 +90,19 @@ const ProductDetail: NextPage = () => {
 }
 
 export default ProductDetail
+
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
+  const id = params?.id
+  // const data = id === typeof String ? getProductById()
+
+  return {
+    props: {
+      preview,
+      // product: data.product,
+    },
+  }
+}

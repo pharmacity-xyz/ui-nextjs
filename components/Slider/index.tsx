@@ -51,7 +51,10 @@ const Slider = (props) => {
   return (
     <Carousel ssr responsive={responsive} className="text-center z-10">
       {featuredProducts.map((product) => (
-        <Link href={{ pathname: '/product/[id]', query: { id: product.id } }}>
+        <Link
+          href={{ pathname: '/product/[id]', query: { id: product.id } }}
+          key={product.id}
+        >
           <div className="container m-1 cursor-pointer hover:scale-105 transform">
             <Image src={product.image} width={100} height={200} />
             <h2 className="text-lg">{product.name}</h2>

@@ -1,10 +1,8 @@
-import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps } from 'next'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import { getAllProducts, getProductById } from '../../lib/api'
-import product1Img from '../../public/images/product_01.png'
+import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
 
 type Props = {
@@ -12,33 +10,19 @@ type Props = {
 }
 
 const ProductDetail: React.FC<Props> = ({ product }) => {
-  // const [product, setProduct] = useState({} as IProduct)
   const [counter, setCounter] = useState(1)
-  const router = useRouter()
-  const { id } = router.query
-
-  useState(() => {
-    // console.log(id)
-    // featuredProducts.map((product) => {
-    //   if (id === product.id) {
-    //   }
-    // })
-    // setProduct({
-    //   id: 'ghhgurghrg',
-    //   name: 'Ibuprofen Tablets',
-    //   category: 1,
-    //   detail:
-    //     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.',
-    //   price: 120.0,
-    //   image: '',
-    //   isFeatured: true,
-    // })
-  })
 
   return (
     <>
       <div className="grid grid-cols-2 mt-20">
-        <Image src={product1Img} width="500" height="500" />
+        {product.image && (
+          <Image
+            src={product.image}
+            alt={product.name}
+            width="500"
+            height="500"
+          />
+        )}
         <div>
           <h1 className="text-4xl">{product.name}</h1>
           <p className="text-[#8c92a0] mt-4">{product.detail}</p>
@@ -104,10 +88,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 export default ProductDetail
-
-// export const getStaticPaths = async (id) => {
-//   return {
-//     paths: [{ params: { id: `product/${id}` } }],
-//     fallback: false,
-//   }
-// }

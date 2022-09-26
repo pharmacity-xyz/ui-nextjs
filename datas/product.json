@@ -3,8 +3,8 @@
     "id": "1",
     "name": "BIODERMA",
     "category": 1,
-    "price": 120.0,
-    "detail": "",
+    "price": 240.0,
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.",
     "image": "/images/product_01.png",
     "isFeatured": true
   },
@@ -13,7 +13,7 @@
     "name": "Chanca Pedra",
     "category": 2,
     "price": 120.0,
-    "detail": "",
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.",
     "image": "/images/product_02.png",
     "isFeatured": true
   },
@@ -21,8 +21,8 @@
     "id": "3",
     "name": "Umcka Coldcare",
     "category": 3,
-    "price": 120.0,
-    "detail": "",
+    "price": 300.0,
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.",
     "image": "/images/product_03.png",
     "isFeatured": true
   }

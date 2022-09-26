@@ -1,5 +1,9 @@
 import featuredProducts from '../datas/featuredProducts.json'
 
+export const getAllProducts = () => {
+  
+}
+
 export const getProductById = (id: number) => {
   let data = {}
   let retProduct = {}

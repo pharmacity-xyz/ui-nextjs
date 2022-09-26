@@ -5,7 +5,8 @@
     "category": 1,
     "price": 120.0,
     "detail": "",
-    "image": "/images/product_01.png"
+    "image": "/images/product_01.png",
+    "isFeatured": true
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "category": 2,
     "price": 120.0,
     "detail": "",
-    "image": "/images/product_02.png"
+    "image": "/images/product_02.png",
+    "isFeatured": true
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "category": 3,
     "price": 120.0,
     "detail": "",
-    "image": "/images/product_03.png"
+    "image": "/images/product_03.png",
+    "isFeatured": true
   }
 ]

@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import Link from 'next/link'
 
-import featuredProducts from '../../datas/featuredProducts.json'
+// import featuredProducts from '../../datas/featuredProducts.json'
+import products from '../../datas/product.json'
 
 import 'react-multi-carousel/lib/styles.css'
 
@@ -25,7 +26,29 @@ const responsive = {
   },
 }
 
+interface IProduct {
+  id: number
+  name: string
+  category: number
+  price: number
+  detail: string
+  image: string
+  isFeatured: boolean
+}
+
 const Slider = (props) => {
+  const [featuredProducts, setFeaturedProducts] = useState([{} as IProduct])
+
+  useEffect(() => {
+    let tempArray: Array<IProduct> = []
+    products.map((product) => {
+      if (product.isFeatured) {
+        tempArray.push(product)
+      }
+    })
+
+    setFeaturedProducts(tempArray)
+  }, [])
   return (
     <Carousel ssr responsive={responsive} className="text-center z-10">
       {featuredProducts.map((product) => (

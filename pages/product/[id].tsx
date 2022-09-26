@@ -97,6 +97,7 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const id = params?.id
+  console.log(id)
   // const data = id === typeof String ? getProductById()
 
   return {
@@ -104,5 +105,11 @@ export const getStaticProps: GetStaticProps = async ({
       preview,
       // product: data.product,
     },
+  }
+}
+
+export const getStaticPaths = () => {
+  return {
+    paths: [{params: {id: ''}}],
   }
 }

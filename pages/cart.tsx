@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <>
       <div className="flex mt-10">
-        <div className="w-2/3 p-4">
+        <div className="w-2/3 px-8 py-4 border-2 mx-4">
           <h1 className="text-2xl">Shopping Cart</h1>
           <p className="text-right">Price</p>
           <hr />
@@ -55,7 +55,7 @@ const Cart = () => {
             Subtotal ({carts.length} items): ${totalPrice}
           </h1>
         </div>
-        <div className="w-1/3 p-4">
+        <div className="w-1/3">
           <div className="border-2 p-2">
             <h1 className="text-xl font-medium pb-4">
               Subtotal ({carts.length} items): ${totalPrice}

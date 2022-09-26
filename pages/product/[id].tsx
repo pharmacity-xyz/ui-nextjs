@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 import { getProductById } from '../../lib/api'
-import featuredProducts from '../../datas/featuredProducts.json'
 import product1Img from '../../public/images/product_01.png'
 
 interface IProduct {

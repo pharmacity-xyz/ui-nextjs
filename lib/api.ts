@@ -1,18 +1,18 @@
-import featuredProducts from '../datas/featuredProducts.json'
+import products from '../datas/product.json'
 
-export const getAllProducts = () => {
-  
+export const getAllProducts = async () => {
+  return products
 }
 
-export const getProductById = (id: number) => {
-  let data = {}
-  let retProduct = {}
-  featuredProducts.map((product) => {
+export const getProductById = async (id: number) => {
+  let allProducts = await getAllProducts()
+  let retProduct
+  allProducts.map((product) => {
     if (id === product.id) {
       console.log('product found', product)
       retProduct = product
     }
   })
 
-  return data
+  return retProduct
 }

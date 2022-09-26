@@ -26,7 +26,7 @@ const responsive = {
 }
 
 interface IProduct {
-  id: number
+  id: string
   name: string
   category: number
   price: number
@@ -57,7 +57,14 @@ const Slider = (props) => {
             key={index}
           >
             <div className="container m-1 cursor-pointer hover:scale-105 transform">
-              <Image src={product.image} width={100} height={200} />
+              {product.image && (
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={100}
+                  height={200}
+                />
+              )}
               <h2 className="text-lg">{product.name}</h2>
               <p>$ {product.price}</p>
             </div>

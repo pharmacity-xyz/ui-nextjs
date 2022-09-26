@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import Link from 'next/link'
 
-// import featuredProducts from '../../datas/featuredProducts.json'
 import products from '../../datas/product.json'
 
 import 'react-multi-carousel/lib/styles.css'

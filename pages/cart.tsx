@@ -11,7 +11,7 @@ const Cart = () => {
         <p className="text-right">Price</p>
         <hr />
         {carts.map((cart) => (
-          <div>
+          <div key={cart.id}>
             <Image src={cart.image} alt={cart.name} width={100} height={100} />
           </div>
         ))}

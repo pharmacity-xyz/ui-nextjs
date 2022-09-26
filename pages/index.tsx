@@ -69,7 +69,9 @@ const Home: NextPage = () => {
             <div key={product.id} className="grid">
               <Image src={product.img} width="200" height="200" />
               <Link href={product.link}>
-                <a className="text-center py-4 hover:underline">{product.name}</a>
+                <a className="text-center py-4 hover:underline">
+                  {product.name}
+                </a>
               </Link>
             </div>
           ))}
@@ -81,7 +83,9 @@ const Home: NextPage = () => {
             <h2 className="text-3xl">
               <strong className="text-[#75b239]">Featured Products</strong>
             </h2>
-            <Link href="">See all</Link>
+            <Link href="/">
+              <a className="hover:underline">See all</a>
+            </Link>
           </div>
           <div className="px-8 py-6">
             <hr />

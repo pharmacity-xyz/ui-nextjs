@@ -1,12 +1,11 @@
-import Image from "next/image";
-import React from "react";
-import Carousel from "react-multi-carousel";
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import Carousel from 'react-multi-carousel'
+import Link from 'next/link'
 
-import product1 from "../../public/images/product_01.png";
-import product2 from "../../public/images/product_02.png";
-import product3 from "../../public/images/product_03.png";
+import products from '../../datas/product.json'
 
-import "react-multi-carousel/lib/styles.css";
+import 'react-multi-carousel/lib/styles.css'
 
 const responsive = {
   desktop: {
@@ -24,61 +23,44 @@ const responsive = {
     items: 1,
     slidesToSlide: 1,
   },
-};
+}
 
-const products = [
-  {
-    image: product1,
-    name: "Umcka Cold Care",
-    price: 120.0,
-  },
-  {
-    image: product1,
-    name: "Umcka Cold Care",
-    price: 120.0,
-  },
-  {
-    image: product1,
-    name: "Umcka Cold Care",
-    price: 120.0,
-  },
-  {
-    image: product1,
-    name: "Umcka Cold Care",
-    price: 120.0,
-  },
-  {
-    image: product1,
-    name: "Umcka Cold Care",
-    price: 120.0,
-  },
-];
+interface IProduct {
+  id: number
+  name: string
+  category: number
+  price: number
+  detail: string
+  image: string
+  isFeatured: boolean
+}
 
 const Slider = (props) => {
-  return (
-    <Carousel ssr responsive={responsive} className="text-center">
-      <div className="container bg-white m-1">
-        <Image src={product1} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-      <div className="container">
-        <Image src={product2} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-      <div className="container">
-        <Image src={product3} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-      <div className="container">
-        <Image src={product1} width={100} height={200} />
-        <h2>Umcka Cold Care</h2>
-        <p>$120.00</p>
-      </div>
-    </Carousel>
-  );
-};
+  const [featuredProducts, setFeaturedProducts] = useState([{} as IProduct])
 
-export default Slider;
+  useEffect(() => {
+    let tempArray: Array<IProduct> = []
+    products.map((product) => {
+      if (product.isFeatured) {
+        tempArray.push(product)
+      }
+    })
+
+    setFeaturedProducts(tempArray)
+  }, [])
+  return (
+    <Carousel ssr responsive={responsive} className="text-center z-10">
+      {featuredProducts.map((product) => (
+        <Link href={{ pathname: '/product/[id]', query: { id: product.id } }}>
+          <div className="container m-1 cursor-pointer hover:scale-105 transform">
+            <Image src={product.image} width={100} height={200} />
+            <h2 className="text-lg">{product.name}</h2>
+            <p>$ {product.price}</p>
+          </div>
+        </Link>
+      ))}
+    </Carousel>
+  )
+}
+
+export default Slider

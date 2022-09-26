@@ -1,36 +1,36 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import products from '../../datas/product.json'
+import { getProductById } from '../../lib/api'
 import product1Img from '../../public/images/product_01.png'
+import { IProduct } from '../../types/productType'
 
-interface IProduct {
-  id: string | number | string[] | undefined
-  name: string
-  category: number
-  price: number
-  detail: string
-  image: string
+type Props = {
+  product: IProduct
 }
 
-const ProductDetail: NextPage = () => {
-  const [product, setProduct] = useState({} as IProduct)
+const ProductDetail: React.FC<Props> = ({ product }: Props) => {
+  // const [product, setProduct] = useState({} as IProduct)
   const [counter, setCounter] = useState(1)
   const router = useRouter()
   const { id } = router.query
 
   useState(() => {
-    setProduct({
-      id: 'ghhgurghrg',
-      name: 'Ibuprofen Tablets',
-      category: 1,
-      detail:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.',
-      price: 120.0,
-      image: '',
-    })
+    // featuredProducts.map((product) => {
+    //   if (id === product.id) {
+    //   }
+    // })
+    // setProduct({
+    //   id: 'ghhgurghrg',
+    //   name: 'Ibuprofen Tablets',
+    //   category: 1,
+    //   detail:
+    //     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.',
+    //   price: 120.0,
+    //   image: '',
+    // })
   })
 
   return (
@@ -85,3 +85,30 @@ const ProductDetail: NextPage = () => {
 }
 
 export default ProductDetail
+
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
+  const id = params?.id
+  let data
+  if (typeof id === 'string') {
+    data = getProductById(parseInt(id))
+  }
+  // const data = getProductById(id as number)
+
+  return {
+    props: {
+      preview,
+      product: data.product,
+    },
+  }
+}
+
+export const getStaticPaths = (id) => {
+  return {
+    paths: [{ params: { id: `product/${id}` } }],
+    fallback: false,
+  }
+}

@@ -1,26 +1,29 @@
 [
   {
-    "pid": "gdgkdjglkdjglkdg1",
+    "id": 1,
     "name": "BIODERMA",
     "category": 1,
     "price": 120.0,
     "detail": "",
-    "image": "../public/images/product_01.png"
+    "image": "/images/product_01.png",
+    "isFeatured": true
   },
   {
-    "pid": "gjlglkgkgldg2",
+    "id": 2,
     "name": "Chanca Pedra",
     "category": 2,
     "price": 120.0,
     "detail": "",
-    "image": "../public/images/product_02.png"
+    "image": "/images/product_02.png",
+    "isFeatured": true
   },
   {
-    "pid": "dgjjgldhgldjgk3",
+    "id": 3,
     "name": "Umcka Coldcare",
     "category": 3,
     "price": 120.0,
     "detail": "",
-    "image": "../public/images/product_03.png"
+    "image": "/images/product_03.png",
+    "isFeatured": true
   }
 ]

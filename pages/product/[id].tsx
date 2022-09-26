@@ -1,9 +1,9 @@
-import { GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import { getProductById } from '../../lib/api'
+import { getAllProducts, getProductById } from '../../lib/api'
 import product1Img from '../../public/images/product_01.png'
 import { IProduct } from '../../types/productType'
 
@@ -11,13 +11,14 @@ type Props = {
   product: IProduct
 }
 
-const ProductDetail: React.FC<Props> = ({ product }: Props) => {
+const ProductDetail: React.FC<Props> = ({ product }) => {
   // const [product, setProduct] = useState({} as IProduct)
   const [counter, setCounter] = useState(1)
   const router = useRouter()
   const { id } = router.query
 
   useState(() => {
+    // console.log(id)
     // featuredProducts.map((product) => {
     //   if (id === product.id) {
     //   }
@@ -30,6 +31,7 @@ const ProductDetail: React.FC<Props> = ({ product }: Props) => {
     //     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.',
     //   price: 120.0,
     //   image: '',
+    //   isFeatured: true,
     // })
   })
 
@@ -84,31 +86,28 @@ const ProductDetail: React.FC<Props> = ({ product }: Props) => {
   )
 }
 
-export default ProductDetail
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const id = context.params?.id
+  let data: IProduct
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-  preview = false,
-  previewData,
-}) => {
-  const id = params?.id
-  let data
   if (typeof id === 'string') {
-    data = getProductById(parseInt(id))
+    data = await getProductById(id)
+  } else {
+    data = {} as IProduct
   }
-  // const data = getProductById(id as number)
 
   return {
     props: {
-      preview,
-      product: data.product,
+      product: data,
     },
   }
 }
 
-export const getStaticPaths = (id) => {
-  return {
-    paths: [{ params: { id: `product/${id}` } }],
-    fallback: false,
-  }
-}
+export default ProductDetail
+
+// export const getStaticPaths = async (id) => {
+//   return {
+//     paths: [{ params: { id: `product/${id}` } }],
+//     fallback: false,
+//   }
+// }

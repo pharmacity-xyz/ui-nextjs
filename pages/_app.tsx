@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <Footer />
         </div>
-        <ToastContainer />
+        <ToastContainer position="bottom-left" />
       </CartProvider>
     </>
   )

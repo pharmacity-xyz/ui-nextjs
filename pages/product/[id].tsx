@@ -52,7 +52,10 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
               +
             </button>
           </div>
-          <button className="text-white bg-[#75b239] px-6 py-5 rounded-md mt-10">
+          <button
+            className="text-white bg-[#75b239] px-6 py-5 rounded-md mt-10"
+            onClick={() => addItem(product)}
+          >
             ADD TO CART
           </button>
         </div>

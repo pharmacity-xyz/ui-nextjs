@@ -10,7 +10,6 @@ export const getProductById = async (id: string): Promise<IProduct> => {
   let retProduct
   allProducts.map((product) => {
     if (id === product.id) {
-      console.log('product found', product)
       retProduct = product
     }
   })

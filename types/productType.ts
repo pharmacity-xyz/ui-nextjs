@@ -6,4 +6,6 @@ export interface IProduct {
   detail: string
   image: string
   isFeatured: boolean
+  sku: string
+  currency: string
 }

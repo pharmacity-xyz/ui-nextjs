@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import React from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
+import { toast } from 'react-toastify'
 
 import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
@@ -33,7 +34,10 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
 
           <button
             className="text-white bg-[#75b239] px-6 py-4 rounded-md mt-10 w-full"
-            onClick={() => addItem(product)}
+            onClick={() => {
+              toast('Added to your cart!')
+              addItem(product)
+            }}
           >
             ADD TO CART
           </button>

@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import { BsCart4, BsSearch } from 'react-icons/bs'
+import { useShoppingCart } from 'use-shopping-cart'
 
 export const Header = () => {
+  const { cartDetails } = useShoppingCart()
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6 sticky top-0 z-50">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -51,7 +53,7 @@ export const Header = () => {
             <Link href="/cart">
               <a className="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
                 <BsCart4 />
-                Cart
+                Cart {Object.values(cartDetails ?? {}).length}
               </a>
             </Link>
           </div>

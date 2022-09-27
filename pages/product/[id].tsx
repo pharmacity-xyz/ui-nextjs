@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
 
 import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
@@ -11,6 +12,8 @@ type Props = {
 
 const ProductDetail: React.FC<Props> = ({ product }) => {
   const [counter, setCounter] = useState(1)
+
+  const { addItem } = useShoppingCart()
 
   return (
     <>

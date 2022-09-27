@@ -261,7 +261,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:^1.14.0":
+"@stripe/react-stripe-js@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "@stripe/react-stripe-js@npm:1.12.0"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    "@stripe/stripe-js": ^1.38.1
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 76eafaf1e7dd4300c7b7283d0849ce20e6f1efef017e7bf9437c687be91f960097f2c5b83414a3f36d1b1e7d59260c46eb17b819db86c4df6b34abf5ac49da8a
+  languageName: node
+  linkType: hard
+
+"@stripe/stripe-js@npm:^1.14.0, @stripe/stripe-js@npm:^1.38.1":
   version: 1.38.1
   resolution: "@stripe/stripe-js@npm:1.38.1"
   checksum: ddc7744c83b5c6a18af1c673fca7b760e0660023e6ec01e9a9440f1f3c85977d583eeb5e0680c3b8b253501cc9328f1392b376c2dc22ff83f8a7f83c6f28031c
@@ -305,6 +318,13 @@ __metadata:
   version: 18.7.18
   resolution: "@types/node@npm:18.7.18"
   checksum: 8aec61f0f96e2a69ce51f1f40f949ca578bbb4fe05d7c0b8ce3aeeb848e90f755837f17f6ac132ca404d974fe9b2974150ad3b4984fc9dc7c3ceddb10bae0167
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:>=8.1.0":
+  version: 18.7.23
+  resolution: "@types/node@npm:18.7.23"
+  checksum: 2c8df0830d8345e5cd1ca17feb9cf43fa667aae749888e0a068c5c1b35eaedd2f9b24ed987a0758078395edf7a03681e5e0b7790a518ff7afe1ff6d8459f7b4a
   languageName: node
   linkType: hard
 
@@ -2671,6 +2691,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pharmacity-ui-v1@workspace:."
   dependencies:
+    "@stripe/react-stripe-js": ^1.12.0
+    "@stripe/stripe-js": ^1.38.1
     "@types/node": 18.7.18
     "@types/react": ^18.0.20
     "@types/react-dom": 18.0.6
@@ -2684,6 +2706,8 @@ __metadata:
     react-dom: 18.2.0
     react-icons: ^4.4.0
     react-multi-carousel: ^2.8.2
+    redux: ^4.2.0
+    stripe: ^10.12.0-beta.1
     tailwindcss: ^3.1.8
     typescript: 4.8.3
     use-shopping-cart: ^3.1.2
@@ -2854,6 +2878,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"qs@npm:^6.10.3":
+  version: 6.11.0
+  resolution: "qs@npm:6.11.0"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: 6e1f29dd5385f7488ec74ac7b6c92f4d09a90408882d0c208414a34dd33badc1a621019d4c799a3df15ab9b1d0292f97c1dd71dc7c045e69f81a8064e5af7297
+  languageName: node
+  linkType: hard
+
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -2987,7 +3020,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:^4.0.0, redux@npm:^4.1.2":
+"redux@npm:^4.0.0, redux@npm:^4.1.2, redux@npm:^4.2.0":
   version: 4.2.0
   resolution: "redux@npm:4.2.0"
   dependencies:
@@ -3334,6 +3367,16 @@ __metadata:
   version: 3.1.1
   resolution: "strip-json-comments@npm:3.1.1"
   checksum: 492f73e27268f9b1c122733f28ecb0e7e8d8a531a6662efbd08e22cccb3f9475e90a1b82cab06a392f6afae6d2de636f977e231296400d0ec5304ba70f166443
+  languageName: node
+  linkType: hard
+
+"stripe@npm:^10.12.0-beta.1":
+  version: 10.12.0-beta.1
+  resolution: "stripe@npm:10.12.0-beta.1"
+  dependencies:
+    "@types/node": ">=8.1.0"
+    qs: ^6.10.3
+  checksum: 86a69dde0112a423ae265a9ccefb9b550727c3ecd306f2858ff331e7de59c59797c217cd9cc48e335d174b2d968f5426342ff84d982f959a9b67a4a878e884da
   languageName: node
   linkType: hard
 

@@ -33,6 +33,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@stripe/react-stripe-js", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:1.12.0"],\
+            ["@stripe/stripe-js", "npm:1.38.1"],\
             ["@types/node", "npm:18.7.18"],\
             ["@types/react", "npm:18.0.20"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -46,6 +48,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
             ["react-icons", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:4.4.0"],\
             ["react-multi-carousel", "npm:2.8.2"],\
+            ["redux", "npm:4.2.0"],\
+            ["stripe", "npm:10.12.0-beta.1"],\
             ["tailwindcss", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.8"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["use-shopping-cart", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.2"]\
@@ -368,6 +372,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@stripe/react-stripe-js", [\
+        ["npm:1.12.0", {\
+          "packageLocation": "./.yarn/cache/@stripe-react-stripe-js-npm-1.12.0-b5f0473e23-76eafaf1e7.zip/node_modules/@stripe/react-stripe-js/",\
+          "packageDependencies": [\
+            ["@stripe/react-stripe-js", "npm:1.12.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:1.12.0", {\
+          "packageLocation": "./.yarn/__virtual__/@stripe-react-stripe-js-virtual-c50bb0947b/0/cache/@stripe-react-stripe-js-npm-1.12.0-b5f0473e23-76eafaf1e7.zip/node_modules/@stripe/react-stripe-js/",\
+          "packageDependencies": [\
+            ["@stripe/react-stripe-js", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:1.12.0"],\
+            ["@stripe/stripe-js", "npm:1.38.1"],\
+            ["@types/react", "npm:18.0.20"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["@types/stripe__stripe-js", null],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@stripe/stripe-js",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/stripe__stripe-js",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@stripe/stripe-js", [\
         ["npm:1.38.1", {\
           "packageLocation": "./.yarn/cache/@stripe-stripe-js-npm-1.38.1-c55641c2dc-ddc7744c83.zip/node_modules/@stripe/stripe-js/",\
@@ -421,6 +456,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-18.7.18-5bcc3f839f-8aec61f0f9.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:18.7.18"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:18.7.23", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.7.23-070e968159-2c8df0830d.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.7.23"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3237,6 +3279,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["pharmacity-ui-v1", "workspace:."],\
+            ["@stripe/react-stripe-js", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:1.12.0"],\
+            ["@stripe/stripe-js", "npm:1.38.1"],\
             ["@types/node", "npm:18.7.18"],\
             ["@types/react", "npm:18.0.20"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -3250,6 +3294,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
             ["react-icons", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:4.4.0"],\
             ["react-multi-carousel", "npm:2.8.2"],\
+            ["redux", "npm:4.2.0"],\
+            ["stripe", "npm:10.12.0-beta.1"],\
             ["tailwindcss", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.8"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["use-shopping-cart", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.2"]\
@@ -3493,6 +3539,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/punycode-npm-2.1.1-26eb3e15cf-823bf443c6.zip/node_modules/punycode/",\
           "packageDependencies": [\
             ["punycode", "npm:2.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["qs", [\
+        ["npm:6.11.0", {\
+          "packageLocation": "./.yarn/cache/qs-npm-6.11.0-caf1bc9dea-6e1f29dd53.zip/node_modules/qs/",\
+          "packageDependencies": [\
+            ["qs", "npm:6.11.0"],\
+            ["side-channel", "npm:1.0.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4071,6 +4127,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/strip-json-comments-npm-3.1.1-dcb2324823-492f73e272.zip/node_modules/strip-json-comments/",\
           "packageDependencies": [\
             ["strip-json-comments", "npm:3.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["stripe", [\
+        ["npm:10.12.0-beta.1", {\
+          "packageLocation": "./.yarn/cache/stripe-npm-10.12.0-beta.1-213ef0d7e7-86a69dde01.zip/node_modules/stripe/",\
+          "packageDependencies": [\
+            ["stripe", "npm:10.12.0-beta.1"],\
+            ["@types/node", "npm:18.7.23"],\
+            ["qs", "npm:6.11.0"]\
           ],\
           "linkType": "HARD"\
         }]\

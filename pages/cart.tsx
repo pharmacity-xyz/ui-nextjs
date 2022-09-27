@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
 
 import Slider from '../components/Slider'
 import cartsData from '../datas/cart.json'
@@ -10,20 +11,22 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0)
   const [carts, setCarts] = useState<Array<ICart>>([{} as ICart])
 
-  useEffect(() => {
-    let tempTotalPrice = 0
-    if (totalPrice === 0) {
-      cartsData.map((cart) => {
-        tempTotalPrice += cart.price
-      })
-    } else {
-      carts.map((cart) => {
-        tempTotalPrice += cart.price
-      })
-    }
-    setTotalPrice(tempTotalPrice)
-    setCarts(cartsData)
-  }, [])
+  const { removeItem, cartDetails, clearCart } = useShoppingCart()
+
+  // useEffect(() => {
+  //   let tempTotalPrice = 0
+  //   if (totalPrice === 0) {
+  //     cartsData.map((cart) => {
+  //       tempTotalPrice += cart.price
+  //     })
+  //   } else {
+  //     carts.map((cart) => {
+  //       tempTotalPrice += cart.price
+  //     })
+  //   }
+  //   setTotalPrice(tempTotalPrice)
+  //   setCarts(cartsData)
+  // }, [])
 
   const updatePrice = (event, id) => {
     let quantity = event.target.value
@@ -46,7 +49,8 @@ const Cart = () => {
           <h1 className="text-2xl">Shopping Cart</h1>
           <p className="text-right">Price</p>
           <hr />
-          {carts.map((cart, index) => (
+          <button onClick={() => clearCart()}>Clear cart</button>
+          {Object.values(cartDetails ?? {}).map((cart, index) => (
             <div className="flex border-b-2 py-4" key={index}>
               <div className="w-1/3">
                 {cart.image && (

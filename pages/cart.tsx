@@ -2,31 +2,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
+import Counter from '../components/Counter'
+import { BsTrashFill } from 'react-icons/bs'
 
 import Slider from '../components/Slider'
 import { ICart } from '../types'
 
 const Cart = () => {
-  const [totalPrice, setTotalPrice] = useState(0)
+  // const [totalPrice, setTotalPrice] = useState(0)
   const [carts, setCarts] = useState<Array<ICart>>([{} as ICart])
 
-  const { removeItem, cartDetails, clearCart } = useShoppingCart()
-
-  useEffect(() => {}, [])
-
-  // const updatePrice = (event, id) => {
-  //   let quantity = event.target.value
-  //   let tempCarts = carts
-  //   console.log(id)
-
-  //   tempCarts.map((cart) => {
-  //     if (id === cart.id) {
-  //       cart.quantity = quantity
-  //     }
-  //   })
-
-  //   setCarts(tempCarts)
-  // }
+  const { removeItem, cartDetails, clearCart, totalPrice } = useShoppingCart()
 
   return (
     <>
@@ -54,23 +40,10 @@ const Cart = () => {
               <div className="w-1/3 items-center justify-end">
                 <h1 className="mb-4">{cart.name}</h1>
                 <h1 className="mb-4">{cart.category}</h1>
-                <div className="flex gap-4">
-                  <select
-                    className="h-8 px-4  bg-gray-300 rounded-md"
-                    onChange={() => updatePrice(event, cart.id)}
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                  <p>|</p>
-                  <button
-                    className="px-4 rounded-lg hover:bg-red-500"
-                    onClick={() => removeItem(cart.id)}
-                  >
-                    Delete
+                <div className="flex">
+                  <Counter id={cart.id} quantity={cart.quantity} />
+                  <button onClick={() => removeItem(cart.id)}>
+                    <BsTrashFill className="text-2xl text-red-600" />
                   </button>
                 </div>
               </div>

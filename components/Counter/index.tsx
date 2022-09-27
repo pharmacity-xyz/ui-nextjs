@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
 
-const Counter = () => {
+const Counter = ({ id, quantity }) => {
   const [counter, setCounter] = useState(1)
+  const { incrementItem, decrementItem } = useShoppingCart()
   return (
     <div>
       <button
-        onClick={() => setCounter(counter - 1)}
-        className="text-[#75b239] border border-[#75b239] p-2 rounded-l-md text-xl"
+        onClick={() => decrementItem(id)}
+        className="text-[#75b239] border border-[#75b239] p-1 rounded-l-md"
       >
         -
       </button>
       <input
         type="number"
         readOnly
-        value={counter}
-        className="text-center border border-gray pt-3 pb-2 mt-8"
+        value={quantity}
+        className="border border-gray py-1 w-3/5 text-center"
       />
       <button
-        onClick={() => setCounter(counter + 1)}
-        className="text-[#75b239] border border-[#75b239] p-2 rounded-r-md text-xl"
+        onClick={() => incrementItem(id)}
+        className="text-[#75b239] border border-[#75b239] p-1 rounded-r-md"
       >
         +
       </button>
     </div>
   )
 }
+
+export default Counter

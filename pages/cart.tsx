@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 
 import Slider from '../components/Slider'
-import cartsData from '../datas/cart.json'
 import { ICart } from '../types'
 
 const Cart = () => {
@@ -13,19 +12,21 @@ const Cart = () => {
 
   const { removeItem, cartDetails, clearCart } = useShoppingCart()
 
-  const updatePrice = (event, id) => {
-    let quantity = event.target.value
-    let tempCarts = carts
-    console.log(id)
+  useEffect(() => {}, [])
 
-    tempCarts.map((cart) => {
-      if (id === cart.id) {
-        cart.quantity = quantity
-      }
-    })
+  // const updatePrice = (event, id) => {
+  //   let quantity = event.target.value
+  //   let tempCarts = carts
+  //   console.log(id)
 
-    setCarts(tempCarts)
-  }
+  //   tempCarts.map((cart) => {
+  //     if (id === cart.id) {
+  //       cart.quantity = quantity
+  //     }
+  //   })
+
+  //   setCarts(tempCarts)
+  // }
 
   return (
     <>
@@ -34,7 +35,9 @@ const Cart = () => {
           <h1 className="text-2xl">Shopping Cart</h1>
           <p className="text-right">Price</p>
           <hr />
-          <button onClick={() => clearCart()}>Clear cart</button>
+          {Object.values(cartDetails ?? {}).length === 0 && (
+            <h1 className="py-4 text-2xl text-center">Your cart is empty.</h1>
+          )}
           {Object.values(cartDetails ?? {}).map((cart, index) => (
             <div className="flex border-b-2 py-4" key={index}>
               <div className="w-1/3">
@@ -77,16 +80,28 @@ const Cart = () => {
             </div>
           ))}
           <h1 className="text-right">
-            Subtotal ({carts.length} items): ${totalPrice}
+            Subtotal ({Object.values(cartDetails ?? {}).length} items): $
+            {totalPrice}
           </h1>
         </div>
-        <div className="w-1/3">
+        <div className="w-1/3 mx-4">
           <div className="border-2 p-2">
             <h1 className="text-xl font-medium pb-4">
-              Subtotal ({carts.length} items): ${totalPrice}
+              Subtotal ({Object.values(cartDetails ?? {}).length} items): $
+              {totalPrice}
             </h1>
-            <button className="bg-yellow-400 p-2 rounded-md w-full">
+            <button
+              className="bg-yellow-400 p-2 rounded-md w-full mb-4"
+              disabled={Object.values(cartDetails ?? {}).length < 1}
+            >
               Proceed to checkout
+            </button>
+            <button
+              className="bg-red-400 p-2 rounded-md w-full"
+              onClick={() => clearCart()}
+              disabled={Object.values(cartDetails ?? {}).length < 1}
+            >
+              Clear cart
             </button>
           </div>
         </div>

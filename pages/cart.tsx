@@ -8,9 +8,11 @@ import carts from '../datas/cart.json'
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0)
   useEffect(() => {
+    let tempTotalPrice = 0
     carts.map((cart) => {
-      setTotalPrice(cart.price + totalPrice)
+      tempTotalPrice += cart.price
     })
+    setTotalPrice(tempTotalPrice)
   }, [])
 
   return (
@@ -35,7 +37,7 @@ const Cart = () => {
                 <h1 className="mb-4">{cart.name}</h1>
                 <h1 className="mb-4">{cart.category}</h1>
                 <div className="flex gap-4">
-                  <select className="h-8  bg-gray-300">
+                  <select className="h-8  bg-gray-300 rounded-md">
                     <option>Qty: 1</option>
                     <option>2</option>
                     <option>3</option>

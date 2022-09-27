@@ -13,21 +13,6 @@ const Cart = () => {
 
   const { removeItem, cartDetails, clearCart } = useShoppingCart()
 
-  // useEffect(() => {
-  //   let tempTotalPrice = 0
-  //   if (totalPrice === 0) {
-  //     cartsData.map((cart) => {
-  //       tempTotalPrice += cart.price
-  //     })
-  //   } else {
-  //     carts.map((cart) => {
-  //       tempTotalPrice += cart.price
-  //     })
-  //   }
-  //   setTotalPrice(tempTotalPrice)
-  //   setCarts(cartsData)
-  // }, [])
-
   const updatePrice = (event, id) => {
     let quantity = event.target.value
     let tempCarts = carts
@@ -78,7 +63,10 @@ const Cart = () => {
                     <option>5</option>
                   </select>
                   <p>|</p>
-                  <button className="px-4 rounded-lg hover:bg-red-500">
+                  <button
+                    className="px-4 rounded-lg hover:bg-red-500"
+                    onClick={() => removeItem(cart.id)}
+                  >
                     Delete
                   </button>
                 </div>

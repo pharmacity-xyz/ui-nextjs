@@ -26,7 +26,7 @@ const Cart = () => {
           )}
           {Object.values(cartDetails ?? {}).map((cart, index) => (
             <div className="flex border-b-2 py-4" key={index}>
-              <div className="w-1/3">
+              <div className="w-2/6">
                 {cart.image && (
                   <Image
                     src={cart.image}
@@ -37,17 +37,17 @@ const Cart = () => {
                   />
                 )}
               </div>
-              <div className="w-1/3 items-center justify-end">
+              <div className="w-3/6 items-center justify-end">
                 <h1 className="mb-4">{cart.name}</h1>
                 <h1 className="mb-4">{cart.category}</h1>
-                <div className="flex">
+                <div className="flex justify-evenly">
                   <Counter id={cart.id} quantity={cart.quantity} />
                   <button onClick={() => removeItem(cart.id)}>
                     <BsTrashFill className="text-2xl text-red-600" />
                   </button>
                 </div>
               </div>
-              <div className="w-1/3 flex items-center justify-end">
+              <div className="w-1/6 flex items-center justify-end">
                 <h1>$ {cart.quantity * cart.price}</h1>
               </div>
             </div>

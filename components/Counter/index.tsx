@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 
 const Counter = ({ id, quantity }) => {
-  const [counter, setCounter] = useState(1)
   const { incrementItem, decrementItem } = useShoppingCart()
   return (
     <div>

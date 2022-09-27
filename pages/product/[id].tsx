@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 
 import { getProductById } from '../../lib/api'
@@ -11,8 +11,6 @@ type Props = {
 }
 
 const ProductDetail: React.FC<Props> = ({ product }) => {
-  const [counter, setCounter] = useState(1)
-
   const { addItem } = useShoppingCart()
 
   return (
@@ -26,34 +24,15 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
             height="500"
           />
         )}
-        <div>
+        <div className="px-4">
           <h1 className="text-4xl">{product.name}</h1>
           <p className="text-[#8c92a0] mt-4">{product.detail}</p>
           <h2 className="text-[#75b239] text-2xl mt-4 font-bold">
             $ {product.price}
           </h2>
-          <div>
-            <button
-              onClick={() => setCounter(counter - 1)}
-              className="text-[#75b239] border border-[#75b239] p-2 rounded-l-md text-xl"
-            >
-              -
-            </button>
-            <input
-              type="number"
-              readOnly
-              value={counter}
-              className="text-center border border-gray pt-3 pb-2 mt-8"
-            />
-            <button
-              onClick={() => setCounter(counter + 1)}
-              className="text-[#75b239] border border-[#75b239] p-2 rounded-r-md text-xl"
-            >
-              +
-            </button>
-          </div>
+
           <button
-            className="text-white bg-[#75b239] px-6 py-5 rounded-md mt-10"
+            className="text-white bg-[#75b239] px-6 py-4 rounded-md mt-10 w-full"
             onClick={() => addItem(product)}
           >
             ADD TO CART

@@ -48,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
             ["react-icons", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:4.4.0"],\
             ["react-multi-carousel", "npm:2.8.2"],\
+            ["react-toastify", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:9.0.8"],\
             ["redux", "npm:4.2.0"],\
             ["stripe", "npm:10.12.0-beta.1"],\
             ["tailwindcss", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.8"],\
@@ -1074,6 +1075,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/clean-stack-npm-2.2.0-a8ce435a5c-2ac8cd2b2f.zip/node_modules/clean-stack/",\
           "packageDependencies": [\
             ["clean-stack", "npm:2.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["clsx", [\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/clsx-npm-1.2.1-77792dc182-30befca801.zip/node_modules/clsx/",\
+          "packageDependencies": [\
+            ["clsx", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3294,6 +3304,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"],\
             ["react-icons", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:4.4.0"],\
             ["react-multi-carousel", "npm:2.8.2"],\
+            ["react-toastify", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:9.0.8"],\
             ["redux", "npm:4.2.0"],\
             ["stripe", "npm:10.12.0-beta.1"],\
             ["tailwindcss", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:3.1.8"],\
@@ -3683,6 +3694,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react",\
             "react-dom",\
             "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-toastify", [\
+        ["npm:9.0.8", {\
+          "packageLocation": "./.yarn/cache/react-toastify-npm-9.0.8-6364e8fbe0-d48fa369b3.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "npm:9.0.8"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:9.0.8", {\
+          "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-6066c4397a/0/cache/react-toastify-npm-9.0.8-6364e8fbe0-d48fa369b3.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:9.0.8"],\
+            ["@types/react", "npm:18.0.20"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["clsx", "npm:1.2.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:0433ea23e8a2daf599d7477fac4af30319889a36f2cf1d398038310c92f47716571fe72b8d7c64b165a51ded11f3f664efe7f382198c8e2611bf25a0fa7664df#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
             "react"\
           ],\
           "linkType": "HARD"\

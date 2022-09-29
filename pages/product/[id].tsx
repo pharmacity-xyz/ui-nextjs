@@ -16,7 +16,7 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
   const { addItem } = useShoppingCart()
 
   return (
-    <Layout title="Product">
+    <Layout title="Product Detail">
       <div className="grid grid-cols-2 mt-20">
         {product.image && (
           <Image

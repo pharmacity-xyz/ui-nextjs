@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 
-import medical from '../../datas/medical.json'
+import homeSlider from '../../datas/homeSlider.json'
 
 const responsive = {
   desktop: {
@@ -34,7 +34,7 @@ const HomeSlider = () => {
         responsive={responsive}
         className="text-center z-10"
       >
-        {medical.map((product, index) => (
+        {homeSlider.map((product, index) => (
           <div className="w-full" key={index}>
             {product.image && (
               <Image

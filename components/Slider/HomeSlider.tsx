@@ -22,7 +22,7 @@ const responsive = {
   },
 }
 
-const Medical = () => {
+const HomeSlider = () => {
   return (
     <>
       <Carousel
@@ -52,4 +52,4 @@ const Medical = () => {
   )
 }
 
-export default Medical
+export default HomeSlider

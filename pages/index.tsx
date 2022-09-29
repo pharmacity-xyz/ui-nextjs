@@ -9,8 +9,7 @@ import scheduleVaccineImg from '../public/images/schedule_vaccine.png'
 import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
 import doctorImg from '../public/images/doctor.png'
 import productList from '../datas/productList.json'
-import massageChairImg from '../public/images/cat_massagechair_02.jpg'
-import Medical from '../components/Slider/Medical'
+import HomeSlider from '../components/Slider/HomeSlider'
 
 const covid19Rows = [
   {
@@ -34,7 +33,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className="">
-        <Medical />
+        <HomeSlider />
         <div className="flex px-20 py-8">
           <BsInfoCircle className="text-2xl mr-2" />
           <p className="text-lg">

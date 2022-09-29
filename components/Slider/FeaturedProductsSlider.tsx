@@ -35,7 +35,7 @@ interface IProduct {
   isFeatured: boolean
 }
 
-const Slider = (props) => {
+export const FeaturedProductsSlider = (props) => {
   const [featuredProducts, setFeaturedProducts] = useState([{} as IProduct])
 
   useEffect(() => {
@@ -74,5 +74,3 @@ const Slider = (props) => {
     </>
   )
 }
-
-export default Slider

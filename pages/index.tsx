@@ -4,12 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { BsInfoCircle } from 'react-icons/bs'
 
-import Slider from '../components/Slider'
 import scheduleVaccineImg from '../public/images/schedule_vaccine.png'
 import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
 import doctorImg from '../public/images/doctor.png'
 import productList from '../datas/productList.json'
-import HomeSlider from '../components/Slider/HomeSlider'
+import { HomeSlider, FeaturedProductsSlider } from '../components/Slider'
 
 const covid19Rows = [
   {
@@ -92,7 +91,7 @@ const Home: NextPage = () => {
             <hr />
           </div>
         </div>
-        <Slider />
+        <FeaturedProductsSlider />
       </div>
       <div className="bg-green-500 text-white text-center py-4 mt-5">
         <h1 className="w-full text-3xl">Sign up for discount up to 50 % OFF</h1>

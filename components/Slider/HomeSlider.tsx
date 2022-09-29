@@ -22,7 +22,7 @@ const responsive = {
   },
 }
 
-const HomeSlider = () => {
+export const HomeSlider = () => {
   return (
     <>
       <Carousel
@@ -51,5 +51,3 @@ const HomeSlider = () => {
     </>
   )
 }
-
-export default HomeSlider

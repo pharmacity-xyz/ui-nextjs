@@ -4,12 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { BsInfoCircle } from 'react-icons/bs'
 
-import Slider from '../components/Slider'
 import scheduleVaccineImg from '../public/images/schedule_vaccine.png'
 import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
 import doctorImg from '../public/images/doctor.png'
 import productList from '../datas/productList.json'
-import HomeSlider from '../components/Slider/HomeSlider'
+import { HomeSlider, FeaturedProductsSlider } from '../components/Slider'
+import Layout from '../components/Layout'
 
 const covid19Rows = [
   {
@@ -31,7 +31,7 @@ const covid19Rows = [
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <Layout title="Home">
       <div className="">
         <HomeSlider />
         <div className="flex px-20 py-8">
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
             <h2 className="text-3xl">
               <strong className="text-[#75b239]">Featured Products</strong>
             </h2>
-            <Link href="/">
+            <Link href="/product">
               <a className="hover:underline">See all</a>
             </Link>
           </div>
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
             <hr />
           </div>
         </div>
-        <Slider />
+        <FeaturedProductsSlider />
       </div>
       <div className="bg-green-500 text-white text-center py-4 mt-5">
         <h1 className="w-full text-3xl">Sign up for discount up to 50 % OFF</h1>
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
           </button>
         </Link>
       </div>
-    </div>
+    </Layout>
   )
 }
 

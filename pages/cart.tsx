@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 import Counter from '../components/Counter'
 import { BsTrashFill } from 'react-icons/bs'
 
-import Slider from '../components/Slider'
+import { FeaturedProductsSlider } from '../components/Slider'
 import { ICart } from '../types'
+import Layout from '../components/Layout'
 
 const Cart = () => {
   // const [totalPrice, setTotalPrice] = useState(0)
@@ -15,7 +16,7 @@ const Cart = () => {
   const { removeItem, cartDetails, clearCart, totalPrice } = useShoppingCart()
 
   return (
-    <>
+    <Layout title="Cart">
       <div className="flex mt-10">
         <div className="w-2/3 px-8 py-4 border-2 mx-4">
           <h1 className="text-2xl">Shopping Cart</h1>
@@ -93,9 +94,9 @@ const Cart = () => {
             <hr />
           </div>
         </div>
-        <Slider />
+        <FeaturedProductsSlider />
       </div>
-    </>
+    </Layout>
   )
 }
 

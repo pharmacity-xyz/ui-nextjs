@@ -6,9 +6,6 @@ import type { AppProps } from 'next/app'
 import { CartProvider } from 'use-shopping-cart'
 import { ToastContainer } from 'react-toastify'
 
-import { Footer } from '../components/Footer'
-import { Header } from '../components/Header'
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -20,11 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         cancelUrl="twitter.com/dayhaysoos"
         currency="USD"
       >
-        <div className="">
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </div>
+        <Component {...pageProps} />
         <ToastContainer position="bottom-left" />
       </CartProvider>
     </>

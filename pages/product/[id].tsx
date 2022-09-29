@@ -1,48 +1,20 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import React from 'react'
-import { useShoppingCart } from 'use-shopping-cart'
-import { toast } from 'react-toastify'
 
 import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
+import Layout from '../../components/Layout'
+import ProductOverview from '../../components/ProductOverview'
 
 type Props = {
   product: IProduct
 }
 
 const ProductDetail: React.FC<Props> = ({ product }) => {
-  const { addItem } = useShoppingCart()
-
   return (
-    <>
-      <div className="grid grid-cols-2 mt-20">
-        {product.image && (
-          <Image
-            src={product.image}
-            alt={product.name}
-            width="500"
-            height="500"
-          />
-        )}
-        <div className="px-4">
-          <h1 className="text-4xl">{product.name}</h1>
-          <p className="text-[#8c92a0] mt-4">{product.detail}</p>
-          <h2 className="text-[#75b239] text-2xl mt-4 font-bold">
-            $ {product.price}
-          </h2>
-
-          <button
-            className="text-white bg-[#75b239] px-6 py-4 rounded-md mt-10 w-full"
-            onClick={() => {
-              toast('Added to your cart!')
-              addItem(product)
-            }}
-          >
-            ADD TO CART
-          </button>
-        </div>
-      </div>
+    <Layout title="Product Detail">
+      <ProductOverview product={product} />
       <div className="my-20">
         <div className="text-center my-4">
           <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -470,7 +442,7 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
           </section>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

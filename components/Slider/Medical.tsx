@@ -1,11 +1,8 @@
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Carousel from 'react-multi-carousel'
-import Link from 'next/link'
 
 import medical from '../../datas/medical.json'
-
-import 'react-multi-carousel/lib/styles.css'
 
 const responsive = {
   desktop: {
@@ -25,31 +22,11 @@ const responsive = {
   },
 }
 
-interface IProduct {
-  id: string
-  name: string
-  category: number
-  price: number
-  detail: string
-  image: string
-  isFeatured: boolean
-}
-
 const Medical = (props) => {
-  const [featuredProducts, setFeaturedProducts] = useState([{} as IProduct])
-
-  useEffect(() => {
-    // let tempArray: Array<IProduct> = []
-    // medical.map((product) => {
-    //   if (product.isFeatured) {
-    //     tempArray.push(product)
-    //   }
-    // })
-    // setFeaturedProducts(tempArray)
-  }, [])
   return (
     <>
       <Carousel
+        swipeable={false}
         autoPlay
         infinite
         arrows={false}
@@ -58,26 +35,17 @@ const Medical = (props) => {
         className="text-center z-10"
       >
         {medical.map((product, index) => (
-          // <Link
-          //   href={{ pathname: '/product/[id]', query: { id: product.id } }}
-          //   key={index}
-          // >
-          <div
-            className="w-full"
-            key={index}
-          >
+          <div className="w-full" key={index}>
             {product.image && (
               <Image
                 src={product.image}
                 alt={product.name}
-                width="1000px"
-                height="550px"
+                width={100}
+                height={50}
+                layout="responsive"
               />
             )}
-            {/* <h2 className="text-lg">{product.name}</h2>  */}
-            {/* <p>$ {product.price}</p> */}
           </div>
-          // </Link>
         ))}
       </Carousel>
     </>

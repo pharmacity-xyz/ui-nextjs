@@ -20,11 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         cancelUrl="twitter.com/dayhaysoos"
         currency="USD"
       >
-        <div className="">
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </div>
+        <Component {...pageProps} />
         <ToastContainer position="bottom-left" />
       </CartProvider>
     </>

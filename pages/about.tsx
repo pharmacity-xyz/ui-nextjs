@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Image from 'next/image'
 import React from 'react'
+import Layout from '../components/Layout'
 
 import img1 from '../public/images/hero_bg_2.jpg'
 import person1 from '../public/images/person_1.jpg'
@@ -73,7 +74,7 @@ const teams = [
 
 const About: NextPage = () => {
   return (
-    <div>
+    <Layout title="About">
       <div className="w-full h-1/4">
         <Image src={img1} width={500} height={200} layout="responsive" />
       </div>
@@ -124,7 +125,7 @@ const About: NextPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 

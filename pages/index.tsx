@@ -9,6 +9,7 @@ import fluShotsAreHereImg from '../public/images/flu_shots_are_here.png'
 import doctorImg from '../public/images/doctor.png'
 import productList from '../datas/productList.json'
 import { HomeSlider, FeaturedProductsSlider } from '../components/Slider'
+import Layout from '../components/Layout'
 
 const covid19Rows = [
   {
@@ -30,7 +31,7 @@ const covid19Rows = [
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <Layout title="Home">
       <div className="">
         <HomeSlider />
         <div className="flex px-20 py-8">
@@ -105,7 +106,7 @@ const Home: NextPage = () => {
           </button>
         </Link>
       </div>
-    </div>
+    </Layout>
   )
 }
 

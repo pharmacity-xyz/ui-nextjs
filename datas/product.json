@@ -28,5 +28,15 @@
     "image": "/images/product_03.png",
     "isFeatured": true,
     "currency": "USD"
+  },
+  {
+    "id": "sku_4",
+    "name": "Umcka Coldcare",
+    "category": 3,
+    "price": 300.0,
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.",
+    "image": "/images/product_03.png",
+    "isFeatured": true,
+    "currency": "USD"
   }
 ]

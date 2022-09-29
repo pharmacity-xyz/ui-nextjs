@@ -1,26 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Massage chair",
-    "img": "/images/massage_chair.jpg",
+    "name": "Centrifuge",
+    "img": "/images/centrifuge.jpg",
     "link": "/"
   },
   {
     "id": 2,
     "name": "Small Massager",
-    "img": "/images/foot_massage.jpg",
+    "img": "/images/microscope.jpg",
     "link": "/"
   },
   {
     "id": 3,
-    "name": "Relaxation Item",
-    "img": "/images/relaxation_device.jpg",
+    "name": "Incubator",
+    "img": "/images/incubator.jpg",
     "link": "/"
   },
   {
     "id": 4,
-    "name": "Fitness",
-    "img": "/images/fitness.jpg",
+    "name": "MRI",
+    "img": "/images/Mri.jpg",
+    "link": "/"
+  },
+  {
+    "id": 5,
+    "name": "ECG_machine",
+    "img": "/images/ecg_machine.jpg",
     "link": "/"
   },
   {

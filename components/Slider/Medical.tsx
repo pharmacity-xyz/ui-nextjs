@@ -22,7 +22,7 @@ const responsive = {
   },
 }
 
-const Medical = (props) => {
+const Medical = () => {
   return (
     <>
       <Carousel

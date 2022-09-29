@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 
 import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
+import Layout from '../../components/Layout'
 
 type Props = {
   product: IProduct
@@ -15,7 +16,7 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
   const { addItem } = useShoppingCart()
 
   return (
-    <>
+    <Layout title="Product">
       <div className="grid grid-cols-2 mt-20">
         {product.image && (
           <Image
@@ -470,7 +471,7 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
           </section>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

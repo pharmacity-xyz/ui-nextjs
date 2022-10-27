@@ -20,7 +20,7 @@ export const Header = () => {
         </svg>
         <Link href="/">
           <span className="font-semibold text-xl tracking-tight cursor-pointer">
-            Pharmacity
+            MedicalEquipmentShop
           </span>
         </Link>
       </div>

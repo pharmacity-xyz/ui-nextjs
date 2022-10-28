@@ -7,8 +7,8 @@ import { useShoppingCart } from 'use-shopping-cart'
 export const Header = () => {
   const { cartDetails } = useShoppingCart()
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-green-500 p-6 sticky top-0 z-50">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
+    <nav className="flex items-center justify-between flex-wrap bg-white p-6 sticky top-0 z-50">
+      <div className="flex items-center flex-shrink-0 text-black mr-6">
         <svg
           className="fill-current h-8 w-8 mr-2"
           width="54"
@@ -24,36 +24,38 @@ export const Header = () => {
           </span>
         </Link>
       </div>
-      <div className="flex items-center border border-white rounded-xl">
-        {/* <div className="text-sm lg:flex-grow">
-            <select className="h-8 rounded-l-xl bg-gray-300">
-              <option>All</option>
-              <option>Supplements</option>
-              <option>Vitamins</option>
-              <option>Diet & Dutrition</option>
-              <option>Drinks</option>
-            </select>
-          </div> */}
-        <div className="">
-          <input type="text" placeholder="Search" className="w-50 h-8 l p-4" />
-        </div>
-        <button className="px-4 bg-orange-400 h-8 rounded-r-xl">
-          <BsSearch />
-        </button>
+      <div className="flex items-center gap-4">
+        <Link href="/">
+          <button className="px-4 bg-orange-400 h-8">Home</button>
+        </Link>
+        <Link href="/shop">
+          <button className="px-4 bg-orange-400 h-8">Shop</button>
+        </Link>
+        <Link href="/about">
+          <button className="px-4 bg-orange-400 h-8">About</button>
+        </Link>
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
         <div className="flex gap-4">
           <div>
             <Link href="/login">
-              <a className="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+              <a className="flex text-sm px-4 py-2 leading-none border rounded bg-[#143C77] text-black border-black mt-4 lg:mt-0">
                 Login
+                <BiUser />
+              </a>
+            </Link>
+          </div>
+          <div>
+            <Link href="/login">
+              <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
+                Signup
                 <BiUser />
               </a>
             </Link>
           </div>
           <div className="">
             <Link href="/cart">
-              <a className="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+              <a className="flex text-sm px-4 py-2 leading-none border rounded text-black border-black mt-4 lg:mt-0">
                 <BsCart4 />
                 Cart {Object.values(cartDetails ?? {}).length}
               </a>

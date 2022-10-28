@@ -7,7 +7,7 @@ import { useShoppingCart } from 'use-shopping-cart'
 export const Header = () => {
   const { cartDetails } = useShoppingCart()
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6 sticky top-0 z-50">
+    <nav className="flex items-center justify-between flex-wrap bg-white p-6 sticky top-0 z-50">
       <div className="flex items-center flex-shrink-0 text-black mr-6">
         <svg
           className="fill-current h-8 w-8 mr-2"
@@ -24,9 +24,9 @@ export const Header = () => {
           </span>
         </Link>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center gap-4">
         <button className="px-4 bg-orange-400 h-8">Home</button>
-        <button className="px-4 bg-orange-400 h-8">Categories</button>
+        <button className="px-4 bg-orange-400 h-8">Shop</button>
         <button className="px-4 bg-orange-400 h-8">About</button>
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">

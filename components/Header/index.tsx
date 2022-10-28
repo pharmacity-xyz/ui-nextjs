@@ -25,9 +25,15 @@ export const Header = () => {
         </Link>
       </div>
       <div className="flex items-center gap-4">
-        <button className="px-4 bg-orange-400 h-8">Home</button>
-        <button className="px-4 bg-orange-400 h-8">Shop</button>
-        <button className="px-4 bg-orange-400 h-8">About</button>
+        <Link href="/">
+          <button className="px-4 bg-orange-400 h-8">Home</button>
+        </Link>
+        <Link href="/shop">
+          <button className="px-4 bg-orange-400 h-8">Shop</button>
+        </Link>
+        <Link href="/about">
+          <button className="px-4 bg-orange-400 h-8">About</button>
+        </Link>
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
         <div className="flex gap-4">

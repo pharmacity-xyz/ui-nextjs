@@ -76,7 +76,7 @@ const About: NextPage = () => {
   return (
     <Layout title="About">
       <div className="w-full h-1/4">
-        <Image src={img1} width={500} height={200} layout="responsive" />
+        <Image src={img1} alt="" width={500} height={200} layout="responsive" />
       </div>
       <div className="p-5">
         <div className="">
@@ -119,7 +119,7 @@ const About: NextPage = () => {
           {teams.map((person) => (
             <div key={person.id} className="w-full px-10 py-5 text-center">
               <span className=""></span>
-              <Image src={person.image} width={200} height={200} />
+              <Image src={person.image} alt="" width={200} height={200} />
               <h3 className="text-black font-sm text-lg mb-2">{person.name}</h3>
             </div>
           ))}

@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           <div className="flex justify-around w-2/3">
             {covid19Rows.map((row) => (
               <div key={row.id} className="text-center">
-                <Image src={row.img} width="100" height="100" />
+                <Image src={row.img} alt="" width="100" height="100" />
                 <h5>{row.name}</h5>
               </div>
             ))}
@@ -68,7 +68,7 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-3 gap-3 justify-items-center">
           {productList.map((product) => (
             <div key={product.id} className="grid border p-16">
-              <Image src={product.img} width="200" height="200" />
+              <Image src={product.img} alt="" width="200" height="200" />
               <Link href={product.link}>
                 <a className="text-center py-4 hover:underline">
                   {product.name}

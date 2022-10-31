@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_ENV_VARIABLE,
-  timeout: 3000,
+  baseURL: "http://localhost:8000",
 })
 
 instance.interceptors.response.use(

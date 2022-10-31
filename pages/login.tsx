@@ -1,7 +1,12 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 const Login = () => {
+  
+  const handleLogin = () => {
+    
+  }
+
   return (
     <section className="h-screen">
       <div className="px-6 h-full text-gray-800">
@@ -137,7 +142,7 @@ const Login = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

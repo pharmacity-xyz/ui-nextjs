@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { logInApi } from '../services/auth/authServices'
 
@@ -8,10 +9,16 @@ const Login = () => {
   const [password, setPassword] = useState('')
 
   const handleLogin = async () => {
-    await logInApi({
-      email: emailAddress,
-      password,
-    })
+    try {
+      await logInApi({
+        email: emailAddress,
+        password,
+      })
+      toast("Logined!")
+    } catch (e) {
+      console.error(e)
+      toast("Failed!")
+    }
   }
 
   return (

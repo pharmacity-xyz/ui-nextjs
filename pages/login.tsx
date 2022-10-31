@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { logInApi } from '../services/auth/authServices'
 
 const Login = () => {
+  const router = useRouter()
   const [emailAddress, setEmailAddress] = useState('')
   const [password, setPassword] = useState('')
 
@@ -14,10 +16,11 @@ const Login = () => {
         email: emailAddress,
         password,
       })
-      toast("Logined!")
+      router.push('/')
+      toast('Logined!')
     } catch (e) {
       console.error(e)
-      toast("Failed!")
+      toast('Failed!')
     }
   }
 

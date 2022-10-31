@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -8,14 +9,16 @@ import { ISignUpApiData } from '../services/auth/types'
 
 const Register: NextPage = () => {
   const [requestForm, setRequestForm] = useState({} as ISignUpApiData)
+  const router = useRouter()
 
   const handleSignUp = async () => {
     try {
       const res = await signUpApi(requestForm)
-      toast("Created!")
+      router.push('/')
+      toast('Created!')
     } catch (error) {
       console.error(error)
-      toast("Failed!")
+      toast('Failed!')
     }
   }
 

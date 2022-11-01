@@ -6,6 +6,8 @@ import Link from 'next/link'
 import products from '../../datas/product.json'
 
 import 'react-multi-carousel/lib/styles.css'
+import { IReturnProducts } from '../../services/product/types'
+import { getFeaturedProducts } from '../../services/product/productServices'
 
 const responsive = {
   desktop: {
@@ -36,41 +38,49 @@ interface IProduct {
 }
 
 export const FeaturedProductsSlider = (props) => {
-  const [featuredProducts, setFeaturedProducts] = useState([{} as IProduct])
+  const [featuredProducts, setFeaturedProducts] =
+    useState<Array<IReturnProducts>>()
+  const fetchFeaturedProducts = async () => {
+    try {
+      const res = await getFeaturedProducts()
+      setFeaturedProducts(res.data)
+      console.log(featuredProducts)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   useEffect(() => {
-    let tempArray: Array<IProduct> = []
-    products.map((product) => {
-      if (product.isFeatured) {
-        tempArray.push(product)
-      }
-    })
-
-    setFeaturedProducts(tempArray)
+    fetchFeaturedProducts()
   }, [])
+
   return (
     <>
-      <Carousel ssr responsive={responsive} className="text-center z-10">
-        {featuredProducts.map((product, index) => (
-          <Link
-            href={{ pathname: '/product/[id]', query: { id: product.id } }}
-            key={index}
-          >
-            <div className="container m-1 cursor-pointer hover:scale-100 transform border">
-              {product.image && (
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={100}
-                  height={200}
-                />
-              )}
-              <h2 className="text-lg">{product.name}</h2>
-              <p>$ {product.price}</p>
-            </div>
-          </Link>
-        ))}
-      </Carousel>
+      {featuredProducts && (
+        <Carousel ssr responsive={responsive} className="text-center z-10">
+          {featuredProducts.map((product) => (
+            <Link
+              href={{
+                pathname: '/product/[id]',
+                query: { id: product.productId },
+              }}
+              key={product.productId}
+            >
+              <div className="container m-1 cursor-pointer hover:scale-100 transform border">
+                {product.imageUrl && (
+                  <img
+                    src={product.imageUrl}
+                    alt={product.productName}
+                    className="w-80 h-72"
+                  />
+                )}
+                <h2 className="text-lg">{product.productName}</h2>
+                <p>$ {product.price}</p>
+              </div>
+            </Link>
+          ))}
+        </Carousel>
+      )}
     </>
   )
 }

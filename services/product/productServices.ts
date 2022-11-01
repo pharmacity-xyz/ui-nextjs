@@ -11,26 +11,34 @@ const END_POINTS = {
   DELETE: '/product',
 }
 
-export const AddProductApi = (data) => {
+export const addProductApi = (data) => {
   return axios.post(END_POINTS.ADD, data)
 }
 
-export const GetAllProductsApi = () => {
+export const getAllProductsApi = () => {
   return axios.get(END_POINTS.GET_ALL)
 }
 
-export const GetProductByIdApi = (productId: string) => {
+export const getProductByIdApi = (productId: string) => {
   return axios.get(`${END_POINTS.GET_BY_ID}/${productId}`)
 }
 
-export const GetProductsByCategoryApi = (categoryId: string) => {
+export const getProductsByCategoryApi = (categoryId: string) => {
   return axios.get(`${END_POINTS.GET_BY_CATEGORYID}/${categoryId}`)
 }
 
-export const UpdateProductApi = (data) => {
+export const searchProducts = (searchWord: string) => {
+  return axios.get(`${END_POINTS.GET_BY_CATEGORYID}/${searchWord}/1`)
+}
+
+export const getFeaturedProducts = () => {
+  return axios.get(`${END_POINTS.FEATURED}`)
+}
+
+export const updateProductApi = (data) => {
   return axios.put(END_POINTS.UPDATE, data)
 }
 
-export const DeleteProductApi = (id) => {
+export const deleteProductApi = (id) => {
   return axios.delete(`${END_POINTS.DELETE}/${id}`)
 }

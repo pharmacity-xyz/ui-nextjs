@@ -1,36 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import Layout from '../components/Layout'
 import products from '../datas/product.json'
+import { getAllCategoriesApi } from '../services/category/categoryServices'
+import { IReturnGetCategories } from '../services/category/types'
 
 const Shop = () => {
+  const [categories, setCategories] = useState<Array<IReturnGetCategories>>([])
+
+  const fetchAllCategories = async () => {
+    try {
+      const res = await getAllCategoriesApi()
+      setCategories(res.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchAllCategories()
+  }, [])
+
   return (
     <Layout title="Shop">
-      {/* <nav className="flex items-center justify-between flex-wrap bg-[#BA2D2D] p-5 top-0 z-50">
-        <div className="flex items-center flex-shrink-0 text-black mr-6">
-          <h1>Categories:</h1>
-        </div>
-        <div className="flex items-center gap-4">
-          <a className="px-4 h-8">All</a>
-          <a className="px-4 h-8">Text</a>
-          <a className="px-4 h-8">Text</a>
-          <a className="px-4 h-8">Text</a>
-          <a className="px-4 h-8">Text</a>
-          <a className="px-4 h-8">Text</a>
-        </div>
-        <div className="w-full block lg:flex lg:items-center lg:w-auto">
-          <div className="flex">
-            <input
-              type="text"
-              autoFocus={false}
-              placeholder="Search"
-              className="p-4 text-black bg-[#BA2D2D] border-b-2 border-black"
-            />
-          </div>
-        </div>
-      </nav> */}
       <div className="">
         <section className="bg-white py-8">
           <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
@@ -43,12 +37,11 @@ const Shop = () => {
                   Categories:
                 </h1>
                 <div className="gap-4">
-                  <a className="px-4 h-8">All</a>
-                  <a className="px-4 h-8">Text</a>
-                  <a className="px-4 h-8">Text</a>
-                  <a className="px-4 h-8">Text</a>
-                  <a className="px-4 h-8">Text</a>
-                  <a className="px-4 h-8">Text</a>
+                  {categories.map((category) => (
+                    <button key={category.categoryId} className="mx-3 px-3 h-8 border rounded-md border-black">
+                      {category.name}
+                    </button>
+                  ))}
                 </div>
                 <div className="flex items-center" id="store-nav-content">
                   {/* <a

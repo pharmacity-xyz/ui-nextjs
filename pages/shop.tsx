@@ -3,12 +3,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import Layout from '../components/Layout'
-import products from '../datas/product.json'
+// import products from '../datas/product.json'
 import { getAllCategoriesApi } from '../services/category/categoryServices'
 import { IReturnGetCategories } from '../services/category/types'
+import { IReturnProducts } from '../services/product/types'
+import { getAllProductsApi } from '../services/product/productServices'
 
 const Shop = () => {
   const [categories, setCategories] = useState<Array<IReturnGetCategories>>([])
+  const [products, setProducts] = useState<Array<IReturnProducts>>([])
 
   const fetchAllCategories = async () => {
     try {
@@ -19,8 +22,18 @@ const Shop = () => {
     }
   }
 
+  const fetchAllProducts = async () => {
+    try {
+      const res = await getAllProductsApi()
+      setProducts(res.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     fetchAllCategories()
+    fetchAllProducts()
   }, [])
 
   return (
@@ -38,7 +51,10 @@ const Shop = () => {
                 </h1>
                 <div className="gap-4">
                   {categories.map((category) => (
-                    <button key={category.categoryId} className="mx-3 px-3 h-8 border rounded-md border-black">
+                    <button
+                      key={category.categoryId}
+                      className="mx-3 px-3 h-8 border rounded-md border-black"
+                    >
                       {category.name}
                     </button>
                   ))}
@@ -83,27 +99,27 @@ const Shop = () => {
             </nav>
             {products.map((product) => (
               <div
-                key={product.id}
+                key={product.productId}
                 className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col cursor-pointer"
               >
                 <Link
                   href={{
                     pathname: '/product/[id]',
-                    query: { id: product.id },
+                    query: { id: product.productId },
                   }}
                 >
                   <div>
-                    {product.image && (
-                      <Image
-                        src={product.image}
-                        alt={product.name}
+                    {product.imageUrl && (
+                      <img
+                        src={product.imageUrl}
+                        alt={product.productName}
                         width={300}
                         height={300}
                         className="hover:grow hover:shadow-lg"
                       />
                     )}
                     <div className="pt-3 flex items-center justify-between">
-                      <p className="">{product.name}</p>
+                      <p className="">{product.productName}</p>
                       <svg
                         className="h-6 w-6 fill-current text-gray-500 hover:text-black"
                         xmlns="http://www.w3.org/2000/svg"

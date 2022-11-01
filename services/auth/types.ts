@@ -1,11 +1,12 @@
 export interface ISignUpApiData {
   email: string
   password: string
-  first_name: string
-  last_name: string
+  confirmPassword: string
+  firstName: string
+  lastName: string
   city: string
   country: string
-  company_name: string
+  companyName: string
 }
 
 export interface ILogInApiData {

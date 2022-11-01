@@ -15,6 +15,7 @@ export const AUTH_ACTION = {
 
 interface IUserData {
   userId: string
+  token: string
 }
 
 interface IUserDetail {
@@ -65,15 +66,18 @@ export const AuthContextProvider = ({ children }) => {
   const [response, setResponse] = useState<AxiosResponse<IUserData> | null>(
     null
   )
+  const [user, setUser] = useState<IUserData>({} as IUserData)
   const [authState, dispatch] = useReducer(authReducer, initialState)
-
-  const user = response ? response.data : null
 
   const register = async (req: ISignUpApiData) => {
     try {
+      if (req.password !== req.confirmPassword) {
+        toast('Password and Confirmpassowrd does not match!')
+        return
+      }
+
       const res = await signUpApi(req)
-      // console.log((res as any).id)
-      setResponse((res as any).id)
+      setUser({ ...user, userId: res.data })
       router.push('/')
       toast('Created!')
     } catch (error) {
@@ -88,7 +92,8 @@ export const AuthContextProvider = ({ children }) => {
         email: emailAddress,
         password: pass,
       })
-      setResponse(res)
+
+      setUser({ ...user, token: res.data })
       router.push('/')
       toast('Logined!')
     } catch (e) {

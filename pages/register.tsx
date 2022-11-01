@@ -3,24 +3,14 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
+import { useAuth } from '../context/authContextProvider'
 
 import { signUpApi } from '../services/auth/authServices'
 import { ISignUpApiData } from '../services/auth/types'
 
 const Register: NextPage = () => {
   const [requestForm, setRequestForm] = useState({} as ISignUpApiData)
-  const router = useRouter()
-
-  const handleSignUp = async () => {
-    try {
-      const res = await signUpApi(requestForm)
-      router.push('/')
-      toast('Created!')
-    } catch (error) {
-      console.error(error)
-      toast('Failed!')
-    }
-  }
+  const { user, register } = useAuth()
 
   return (
     <section className="h-screen">
@@ -133,7 +123,7 @@ const Register: NextPage = () => {
                 <button
                   type="button"
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  onClick={handleSignUp}
+                  onClick={() => register(requestForm)}
                 >
                   Register
                 </button>

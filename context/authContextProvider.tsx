@@ -1,5 +1,9 @@
 import { AxiosResponse } from 'axios'
+import { useRouter } from 'next/router'
 import React, { useContext, useEffect, useReducer, useState } from 'react'
+import { toast } from 'react-toastify'
+import { logInApi, signUpApi } from '../services/auth/authServices'
+import { ILogInApiData, ISignUpApiData } from '../services/auth/types'
 import { LS } from '../utils/localStorage'
 
 export const AUTH_ACTION = {
@@ -21,7 +25,8 @@ interface IUserDetail {
 
 interface IAuthContext {
   user: IUserData | null
-  // userDetail: IUserDetail | null
+  login: (emailAddress: string, pass: string) => Promise<void>
+  register: (req: ISignUpApiData) => Promise<void>
 }
 
 const initialState = {
@@ -56,6 +61,7 @@ function authReducer(state, action) {
 }
 
 export const AuthContextProvider = ({ children }) => {
+  const router = useRouter()
   const [response, setResponse] = useState<AxiosResponse<IUserData> | null>(
     null
   )
@@ -63,8 +69,38 @@ export const AuthContextProvider = ({ children }) => {
 
   const user = response ? response.data : null
 
+  const register = async (req: ISignUpApiData) => {
+    try {
+      const res = await signUpApi(req)
+      // console.log((res as any).id)
+      setResponse((res as any).id)
+      router.push('/')
+      toast('Created!')
+    } catch (error) {
+      console.error(error)
+      toast('Failed!')
+    }
+  }
+
+  const login = async (emailAddress, pass) => {
+    try {
+      const res = await logInApi({
+        email: emailAddress,
+        password: pass,
+      })
+      setResponse(res)
+      router.push('/')
+      toast('Logined!')
+    } catch (e) {
+      console.error(e)
+      toast('Failed!')
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ login, register, user }}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 

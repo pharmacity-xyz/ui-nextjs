@@ -2,27 +2,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
+import { useAuth } from '../context/authContextProvider'
 
 import { logInApi } from '../services/auth/authServices'
 
 const Login = () => {
-  const router = useRouter()
   const [emailAddress, setEmailAddress] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = async () => {
-    try {
-      await logInApi({
-        email: emailAddress,
-        password,
-      })
-      router.push('/')
-      toast('Logined!')
-    } catch (e) {
-      console.error(e)
-      toast('Failed!')
-    }
-  }
+  const { login } = useAuth()
 
   return (
     <section className="h-screen">
@@ -80,7 +68,7 @@ const Login = () => {
                 <button
                   type="button"
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  onClick={handleLogin}
+                  onClick={() => login(emailAddress, password)}
                 >
                   Login
                 </button>

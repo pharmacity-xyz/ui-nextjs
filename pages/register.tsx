@@ -1,8 +1,17 @@
-import { NextPage } from "next";
-import Link from "next/link";
-import React from "react";
+import { NextPage } from 'next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
+import { useAuth } from '../context/authContextProvider'
+
+import { signUpApi } from '../services/auth/authServices'
+import { ISignUpApiData } from '../services/auth/types'
 
 const Register: NextPage = () => {
+  const [requestForm, setRequestForm] = useState({} as ISignUpApiData)
+  const { user, register } = useAuth()
+
   return (
     <section className="h-screen">
       <div className="px-6 h-full text-gray-800">
@@ -18,43 +27,103 @@ const Register: NextPage = () => {
             <form>
               <div className="mb-6">
                 <input
-                  type="text"
+                  type="email"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleFormControlInput2"
-                  placeholder="Name"
+                  placeholder="Email"
+                  onChange={(e) =>
+                    setRequestForm({ ...requestForm, email: e.target.value })
+                  }
                 />
               </div>
-
-              <div className="mb-6">
-                <input
-                  type="text"
-                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  id="exampleFormControlInput2"
-                  placeholder="Email address"
-                />
-              </div>
-
               <div className="mb-6">
                 <input
                   type="password"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Password"
+                  onChange={(e) =>
+                    setRequestForm({ ...requestForm, password: e.target.value })
+                  }
+                />
+              </div>
+
+              <div className="mb-6">
+                <input
+                  type="text"
+                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="First Name"
+                  onChange={(e) =>
+                    setRequestForm({
+                      ...requestForm,
+                      first_name: e.target.value,
+                    })
+                  }
+                />
+              </div>
+
+              <div className="mb-6">
+                <input
+                  type="text"
+                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="Last Name"
+                  onChange={(e) =>
+                    setRequestForm({
+                      ...requestForm,
+                      last_name: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div className="mb-6">
                 <input
-                  type="password"
+                  type="text"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleFormControlInput2"
-                  placeholder="Confirm Password"
+                  placeholder="City"
+                  onChange={(e) =>
+                    setRequestForm({
+                      ...requestForm,
+                      city: e.target.value,
+                    })
+                  }
                 />
               </div>
-
+              <div className="mb-6">
+                <input
+                  type="text"
+                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="Country"
+                  onChange={(e) =>
+                    setRequestForm({
+                      ...requestForm,
+                      country: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div className="mb-6">
+                <input
+                  type="text"
+                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="Company Name"
+                  onChange={(e) =>
+                    setRequestForm({
+                      ...requestForm,
+                      company_name: e.target.value,
+                    })
+                  }
+                />
+              </div>
               <div className="text-center lg:text-left">
                 <button
                   type="button"
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                  onClick={() => register(requestForm)}
                 >
                   Register
                 </button>
@@ -75,7 +144,7 @@ const Register: NextPage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

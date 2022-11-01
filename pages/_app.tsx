@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css'
 import type { AppProps } from 'next/app'
 import { CartProvider } from 'use-shopping-cart'
 import { ToastContainer } from 'react-toastify'
+import { AuthContextProvider } from '../context/authContextProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,8 +18,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         cancelUrl="twitter.com/dayhaysoos"
         currency="USD"
       >
-        <Component {...pageProps} />
-        <ToastContainer position="bottom-left" />
+        <AuthContextProvider>
+          <Component {...pageProps} />
+          <ToastContainer position="bottom-left" />
+        </AuthContextProvider>
       </CartProvider>
     </>
   )

@@ -3,8 +3,11 @@ import React from 'react'
 import { BsCart4, BsSearch } from 'react-icons/bs'
 import { BiUser } from 'react-icons/bi'
 import { useShoppingCart } from 'use-shopping-cart'
+import { useAuth } from '../../context/authContextProvider'
 
 export const Header = () => {
+  const { user } = useAuth()
+
   const { cartDetails } = useShoppingCart()
   return (
     <nav className="flex items-center justify-between flex-wrap bg-white p-6 sticky top-0 z-50">
@@ -37,22 +40,22 @@ export const Header = () => {
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
         <div className="flex gap-4">
-          <div>
-            <Link href="/login">
-              <a className="flex text-sm px-4 py-2 leading-none border rounded bg-[#143C77] text-black border-black mt-4 lg:mt-0">
-                Login
-                <BiUser />
-              </a>
-            </Link>
-          </div>
-          <div>
-            <Link href="/login">
+          {user === null ? (
+            <div>
+              <Link href="/login">
+                <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
+                  LOGIN or SIGNUP
+                  <BiUser />
+                </a>
+              </Link>
+            </div>
+          ) : (
+            <div>
               <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
-                Signup
                 <BiUser />
               </a>
-            </Link>
-          </div>
+            </div>
+          )}
           <div className="">
             <Link href="/cart">
               <a className="flex text-sm px-4 py-2 leading-none border rounded text-black border-black mt-4 lg:mt-0">

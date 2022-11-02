@@ -27,8 +27,8 @@ export const getProductsByCategoryApi = (categoryId: string) => {
   return axios.get(`${END_POINTS.GET_BY_CATEGORYID}/${categoryId}`)
 }
 
-export const searchProducts = (searchWord: string) => {
-  return axios.get(`${END_POINTS.GET_BY_CATEGORYID}/${searchWord}/1`)
+export const searchProductsApi = (searchWord: string) => {
+  return axios.get(`${END_POINTS.SEARCH}/${searchWord}/1`)
 }
 
 export const getFeaturedProducts = () => {

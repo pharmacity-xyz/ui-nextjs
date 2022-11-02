@@ -74,8 +74,7 @@ export const AuthContextProvider = ({ children }) => {
         return
       }
 
-      const res = await signUpApi(req)
-      // setUser({ ...user, userId: res.data })
+      await signUpApi(req)
       router.push('/login')
       toast('Created!')
     } catch (error) {
@@ -92,6 +91,10 @@ export const AuthContextProvider = ({ children }) => {
       })
 
       setUser(res.data)
+
+      localStorage.setItem('userId', res.data.userId)
+      localStorage.setItem('token', res.data.token)
+
       router.push('/')
       toast('Logined!')
     } catch (e) {
@@ -103,6 +106,10 @@ export const AuthContextProvider = ({ children }) => {
   const logout = () => {
     console.log(user)
     setUser({ userId: '', token: '' } as IUserData)
+
+    localStorage.removeItem('userId')
+    localStorage.removeItem('token')
+
     router.push('/')
     toast('Logged out!')
   }

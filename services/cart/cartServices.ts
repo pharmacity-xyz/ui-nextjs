@@ -27,6 +27,6 @@ export const updateQuantityApi = () => {
   return axios.put(END_POINTS.UPDATE_QUANTITY)
 }
 
-export const deleteCartApi = (productId) => {
-  return axios.delete(`END_POINTS.DELETE/${productId}`)
+export const deleteCartApi = (productId, config: AxiosRequestConfig) => {
+  return axios.delete(`${END_POINTS.DELETE}/${productId}`, config)
 }

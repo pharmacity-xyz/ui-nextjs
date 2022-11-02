@@ -12,6 +12,8 @@ import { useAuth } from '../context/authContextProvider'
 import { deleteCartApi, getCartsApi } from '../services/cart/cartServices'
 import { AxiosRequestConfig } from 'axios'
 import { IReturnCart } from '../services/cart/types'
+import { toast } from 'react-toastify'
+import { checkoutApi } from '../services/checkout/checkoutServices'
 
 const Cart = () => {
   const [carts, setCarts] = useState<Array<IReturnCart>>([{} as IReturnCart])
@@ -25,6 +27,15 @@ const Cart = () => {
       }
       const res = await getCartsApi(config)
       setCarts(res.data)
+
+      let total = 0
+      if (res.data.length > 0) {
+        res.data.forEach((cartElement) => {
+          total += cartElement.price
+        })
+      }
+
+      setTotalPrice(total)
     } catch (error) {
       console.error(error)
     }
@@ -32,7 +43,27 @@ const Cart = () => {
 
   const deleteCartProduct = async (productId) => {
     try {
-      const res = await deleteCartApi(productId)
+      const config: AxiosRequestConfig = {
+        headers: { Authorization: `Bearer ${user!.token}` },
+      }
+      const res = await deleteCartApi(productId, config)
+
+      await fetchCarts()
+      toast('Deleted')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handleCheckout = async () => {
+    try {
+      const config: AxiosRequestConfig = {
+        headers: { Authorization: `Bearer ${user!.token}` },
+      }
+      const res = await checkoutApi(config)
+
+      // @ts-ignore
+      window.open(res as string)
       console.log(res)
     } catch (error) {
       console.error(error)
@@ -68,7 +99,7 @@ const Cart = () => {
                 <h1 className="mb-4">{cart.productName}</h1>
                 <div className="flex justify-evenly">
                   <Counter id={cart.productId} quantity={cart.quantity} />
-                  <button>
+                  <button onClick={() => deleteCartProduct(cart.productId)}>
                     <BsTrashFill className="text-2xl text-red-600" />
                   </button>
                 </div>
@@ -89,13 +120,15 @@ const Cart = () => {
             </h1>
             <button
               className="bg-yellow-400 p-2 rounded-md w-full mb-4"
+              onClick={() => handleCheckout()}
               disabled={carts.length < 1}
             >
               Proceed to checkout
             </button>
             <button
               className="bg-red-400 p-2 rounded-md w-full"
-              disabled={carts.length < 1}
+              // disabled={carts.length < 1}
+              disabled
             >
               Clear cart
             </button>

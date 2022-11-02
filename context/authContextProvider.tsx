@@ -75,7 +75,7 @@ export const AuthContextProvider = ({ children }) => {
       }
 
       const res = await signUpApi(req)
-      setUser({ ...user, userId: res.data })
+      // setUser({ ...user, userId: res.data })
       router.push('/login')
       toast('Created!')
     } catch (error) {
@@ -91,7 +91,7 @@ export const AuthContextProvider = ({ children }) => {
         password: pass,
       })
 
-      setUser({ ...user, token: res.data })
+      setUser(res.data)
       router.push('/')
       toast('Logined!')
     } catch (e) {

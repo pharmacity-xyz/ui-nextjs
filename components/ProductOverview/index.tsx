@@ -13,8 +13,9 @@ const ProductOverview = ({ product }: { product: IReturnProducts }) => {
 
   const handleAddCart = async () => {
     try {
+      console.log('user token', user!.token)
       const config: AxiosRequestConfig = {
-        headers: { Authorization: `${user!.token}` },
+        headers: { Authorization: `Bearer ${user!.token}` },
       }
       const res = await addCartApi(
         {

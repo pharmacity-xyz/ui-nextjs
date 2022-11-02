@@ -51,8 +51,6 @@ const Shop = () => {
       fetchAllProducts()
     }
     fetchAllCategories()
-
-    console.log(products)
   }, [searchWord])
 
   return (

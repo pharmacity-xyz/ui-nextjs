@@ -76,7 +76,7 @@ export const AuthContextProvider = ({ children }) => {
 
       const res = await signUpApi(req)
       setUser({ ...user, userId: res.data })
-      router.push('/')
+      router.push('/login')
       toast('Created!')
     } catch (error) {
       console.error(error)

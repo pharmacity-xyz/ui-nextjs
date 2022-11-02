@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios'
 import axios from '../../apis/axios'
 
 import { IAddCartApi } from './types'
@@ -10,8 +11,8 @@ const END_POINTS = {
   DELETE: '/cart',
 }
 
-export const addCartApi = (data: IAddCartApi) => {
-  return axios.post(END_POINTS.ADD, data)
+export const addCartApi = (data: IAddCartApi, config: AxiosRequestConfig) => {
+  return axios.post(END_POINTS.ADD, data, config)
 }
 
 export const getCartsApi = () => {

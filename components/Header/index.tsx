@@ -4,6 +4,7 @@ import { BsCart4, BsSearch } from 'react-icons/bs'
 import { BiUser } from 'react-icons/bi'
 import { useShoppingCart } from 'use-shopping-cart'
 import { useAuth } from '../../context/authContextProvider'
+import Dropdown from '../Dropdown'
 
 export const Header = () => {
   const { user } = useAuth()
@@ -51,9 +52,10 @@ export const Header = () => {
             </div>
           ) : (
             <div>
-              <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
+              {/* <button className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
                 <BiUser />
-              </a>
+              </button> */}
+              <Dropdown />
             </div>
           )}
           <div className="">

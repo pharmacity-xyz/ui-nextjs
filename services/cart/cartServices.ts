@@ -15,8 +15,8 @@ export const addCartApi = (data: IAddCartApi, config: AxiosRequestConfig) => {
   return axios.post(END_POINTS.ADD, data, config)
 }
 
-export const getCartsApi = () => {
-  return axios.get(END_POINTS.GET_ALL)
+export const getCartsApi = (config: AxiosRequestConfig) => {
+  return axios.get(END_POINTS.GET_ALL, config)
 }
 
 export const countCartApi = () => {
@@ -27,6 +27,6 @@ export const updateQuantityApi = () => {
   return axios.put(END_POINTS.UPDATE_QUANTITY)
 }
 
-export const deleteCartApi = () => {
-  return axios.delete(END_POINTS.DELETE)
+export const deleteCartApi = (productId) => {
+  return axios.delete(`END_POINTS.DELETE/${productId}`)
 }

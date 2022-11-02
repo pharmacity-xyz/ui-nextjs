@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 import Counter from '../components/Counter'
 import { BsTrashFill } from 'react-icons/bs'
@@ -8,12 +8,40 @@ import { BsTrashFill } from 'react-icons/bs'
 import { FeaturedProductsSlider } from '../components/Slider'
 import { ICart } from '../types'
 import Layout from '../components/Layout'
+import { useAuth } from '../context/authContextProvider'
+import { deleteCartApi, getCartsApi } from '../services/cart/cartServices'
+import { AxiosRequestConfig } from 'axios'
+import { IReturnCart } from '../services/cart/types'
 
 const Cart = () => {
-  // const [totalPrice, setTotalPrice] = useState(0)
-  const [carts, setCarts] = useState<Array<ICart>>([{} as ICart])
+  const [carts, setCarts] = useState<Array<IReturnCart>>([{} as IReturnCart])
+  const [totalPrice, setTotalPrice] = useState(0)
+  const { user } = useAuth()
 
-  const { removeItem, cartDetails, clearCart, totalPrice } = useShoppingCart()
+  const fetchCarts = async () => {
+    try {
+      const config: AxiosRequestConfig = {
+        headers: { Authorization: `Bearer ${user!.token}` },
+      }
+      const res = await getCartsApi(config)
+      setCarts(res.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const deleteCartProduct = async (productId) => {
+    try {
+      const res = await deleteCartApi(productId)
+      console.log(res)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchCarts()
+  }, [])
 
   return (
     <Layout title="Cart">
@@ -22,28 +50,25 @@ const Cart = () => {
           <h1 className="text-2xl">Shopping Cart</h1>
           <p className="text-right">Price</p>
           <hr />
-          {Object.values(cartDetails ?? {}).length === 0 && (
+          {carts.length === 0 && (
             <h1 className="py-4 text-2xl text-center">Your cart is empty.</h1>
           )}
-          {Object.values(cartDetails ?? {}).map((cart, index) => (
-            <div className="flex border-b-2 py-4" key={index}>
+          {carts.map((cart) => (
+            <div className="flex border-b-2 py-4" key={cart.productId}>
               <div className="w-2/6">
-                {cart.image && (
-                  <Image
-                    src={cart.image}
-                    alt={cart.name}
-                    width="200"
-                    height="200"
-                    objectFit={'cover'}
+                {cart.imageUrl && (
+                  <img
+                    src={cart.imageUrl}
+                    alt={cart.productName}
+                    className="w-24"
                   />
                 )}
               </div>
               <div className="w-3/6 items-center justify-end">
-                <h1 className="mb-4">{cart.name}</h1>
-                <h1 className="mb-4">{cart.category}</h1>
+                <h1 className="mb-4">{cart.productName}</h1>
                 <div className="flex justify-evenly">
-                  <Counter id={cart.id} quantity={cart.quantity} />
-                  <button onClick={() => removeItem(cart.id)}>
+                  <Counter id={cart.productId} quantity={cart.quantity} />
+                  <button>
                     <BsTrashFill className="text-2xl text-red-600" />
                   </button>
                 </div>
@@ -54,26 +79,23 @@ const Cart = () => {
             </div>
           ))}
           <h1 className="text-right">
-            Subtotal ({Object.values(cartDetails ?? {}).length} items): $
-            {totalPrice}
+            Subtotal ({carts.length} items): ${totalPrice}
           </h1>
         </div>
         <div className="w-1/3 mx-4">
           <div className="border-2 p-2">
             <h1 className="text-xl font-medium pb-4">
-              Subtotal ({Object.values(cartDetails ?? {}).length} items): $
-              {totalPrice}
+              Subtotal ({carts.length} items): ${totalPrice}
             </h1>
             <button
               className="bg-yellow-400 p-2 rounded-md w-full mb-4"
-              disabled={Object.values(cartDetails ?? {}).length < 1}
+              disabled={carts.length < 1}
             >
               Proceed to checkout
             </button>
             <button
               className="bg-red-400 p-2 rounded-md w-full"
-              onClick={() => clearCart()}
-              disabled={Object.values(cartDetails ?? {}).length < 1}
+              disabled={carts.length < 1}
             >
               Clear cart
             </button>

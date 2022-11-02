@@ -1,50 +1,45 @@
 import React from 'react'
 import { toast } from 'react-toastify'
 import { useShoppingCart } from 'use-shopping-cart'
+import { useAuth } from '../../context/authContextProvider'
+import { addCartApi } from '../../services/cart/cartServices'
+import { IReturnProducts } from '../../services/product/types'
 
-const ProductOverview = ({ product }) => {
+const ProductOverview = ({ product }: { product: IReturnProducts }) => {
   const { addItem } = useShoppingCart()
+
+  const { user } = useAuth()
+
+  const handleAddCart = async () => {
+    try {
+      const res = await addCartApi({
+        productId: product.productId,
+        userId: user!.userId,
+        quantity: 1,
+      })
+      console.log(res)
+      toast('Added to your cart!')
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <div className="bg-white">
       <div className="pt-6">
-        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        <div className="mx-auto mt-6 max-w-2xl">
           <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
             <img
-              src={product.image}
+              src={product.imageUrl}
               alt="Two each of gray, white, and black shirts laying flat."
-              className="h-full w-full object-cover object-center"
-            />
-          </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-              <img
-                src={product.image}
-                alt="Model wearing plain black basic tee."
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-            <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-              <img
-                src={product.image}
-                alt="Model wearing plain gray basic tee."
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-          </div>
-          <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
-            <img
-              src={product.image}
-              alt="Model wearing plain white basic tee."
-              className="h-full w-full object-cover object-center"
+              className="object-cover object-center"
             />
           </div>
         </div>
-
         <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-              {product.name}
+              {product.productName}
             </h1>
           </div>
 
@@ -139,10 +134,7 @@ const ProductOverview = ({ product }) => {
             </div>
             <button
               className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              onClick={() => {
-                toast('Added to your cart!')
-                addItem(product)
-              }}
+              onClick={() => handleAddCart()}
             >
               Add to cart
             </button>
@@ -153,7 +145,9 @@ const ProductOverview = ({ product }) => {
               <h3 className="sr-only">Description</h3>
 
               <div className="space-y-6">
-                <p className="text-base text-gray-900">{product.detail}</p>
+                <p className="text-base text-gray-900">
+                  {product.productDescription}
+                </p>
               </div>
             </div>
 
@@ -193,7 +187,9 @@ const ProductOverview = ({ product }) => {
               <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
               <div className="mt-4 space-y-6">
-                <p className="text-sm text-gray-600">{product.detail}</p>
+                <p className="text-sm text-gray-600">
+                  {product.productDescription}
+                </p>
               </div>
             </div>
           </div>

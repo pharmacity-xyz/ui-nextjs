@@ -1,17 +1,38 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
 import Layout from '../../components/Layout'
 import ProductOverview from '../../components/ProductOverview'
+import { useRouter } from 'next/router'
+import { getProductByIdApi } from '../../services/product/productServices'
+import { IReturnProducts } from '../../services/product/types'
 
 type Props = {
   product: IProduct
 }
 
-const ProductDetail: React.FC<Props> = ({ product }) => {
+const ProductDetail: React.FC<Props> = () => {
+  const [product, setProduct] = useState<IReturnProducts>({} as IReturnProducts)
+  const router = useRouter()
+
+  const fetchProduct = async (productId: string) => {
+    try {
+      const res = await getProductByIdApi(productId)
+      setProduct(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    const { id } = router.query
+    console.log(id)
+    fetchProduct(id as string)
+  }, [])
+
   return (
     <Layout title="Product Detail">
       <ProductOverview product={product} />
@@ -446,21 +467,23 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params?.id
-  let data: IProduct
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const id = context.params?.id
+//   let data: IProduct
 
-  if (typeof id === 'string') {
-    data = await getProductById(id)
-  } else {
-    data = {} as IProduct
-  }
+//   console.log(context.params?.id)
 
-  return {
-    props: {
-      product: data,
-    },
-  }
-}
+//   if (typeof id === 'string') {
+//     data = await getProductById(id)
+//   } else {
+//     data = {} as IProduct
+//   }
+
+//   return {
+//     props: {
+//       product: data,
+//     },
+//   }
+// }
 
 export default ProductDetail

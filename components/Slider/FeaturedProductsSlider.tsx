@@ -44,7 +44,6 @@ export const FeaturedProductsSlider = (props) => {
     try {
       const res = await getFeaturedProducts()
       setFeaturedProducts(res.data)
-      console.log(featuredProducts)
     } catch (error) {
       console.error(error)
     }

@@ -41,7 +41,7 @@ export const Header = () => {
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
         <div className="flex gap-4">
-          {user === null ? (
+          {user?.userId === '' && user?.token === '' ? (
             <div>
               <Link href="/login">
                 <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
@@ -51,12 +51,9 @@ export const Header = () => {
               </Link>
             </div>
           ) : (
-            <div>
-              {/* <button className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
-                <BiUser />
-              </button> */}
+            <>
               <Dropdown />
-            </div>
+            </>
           )}
           <div className="">
             <Link href="/cart">

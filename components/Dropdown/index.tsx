@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
+import { useAuth } from '../../context/authContextProvider'
 
 export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const { logout } = useAuth()
+
   return (
     <div className="inline-flex bg-white border rounded-md">
+      {/* <button className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
+                <BiUser />
+              </button> */}
       <a
         href="#"
         className="px-4 py-2 text-sm text-gray-600 hover:text-gray-700 hover:bg-gray-50 rounded-l-md"
@@ -43,12 +49,12 @@ export default function Dropdown() {
               >
                 Orders
               </a>
-              <a
-                href="#"
+              <button
                 className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
+                onClick={logout}
               >
                 Signout
-              </a>
+              </button>
             </div>
           </div>
         )}

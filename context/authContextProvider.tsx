@@ -18,16 +18,11 @@ interface IUserData {
   token: string
 }
 
-interface IUserDetail {
-  userId: string
-  username: string
-  email: string
-}
-
 interface IAuthContext {
   user: IUserData | null
   login: (emailAddress: string, pass: string) => Promise<void>
   register: (req: ISignUpApiData) => Promise<void>
+  logout: () => void
 }
 
 const initialState = {
@@ -66,7 +61,10 @@ export const AuthContextProvider = ({ children }) => {
   const [response, setResponse] = useState<AxiosResponse<IUserData> | null>(
     null
   )
-  const [user, setUser] = useState<IUserData>({} as IUserData)
+  const [user, setUser] = useState<IUserData>({
+    userId: '',
+    token: '',
+  } as IUserData)
   const [authState, dispatch] = useReducer(authReducer, initialState)
 
   const register = async (req: ISignUpApiData) => {
@@ -102,8 +100,15 @@ export const AuthContextProvider = ({ children }) => {
     }
   }
 
+  const logout = () => {
+    console.log(user)
+    setUser({ userId: '', token: '' } as IUserData)
+    router.push('/')
+    toast('Logged out!')
+  }
+
   return (
-    <AuthContext.Provider value={{ login, register, user }}>
+    <AuthContext.Provider value={{ login, register, logout, user }}>
       {children}
     </AuthContext.Provider>
   )

@@ -40,7 +40,7 @@ const Shop = () => {
     try {
       setLoading(true)
       const res = await searchProductsApi(searchWord)
-      setProducts(res.data)
+      setProducts(res.data.products)
       setLoading(false)
     } catch (error) {
       console.error(error)
@@ -48,9 +48,10 @@ const Shop = () => {
   }
 
   useEffect(() => {
-    if (searchWord === '') {
-      fetchAllProducts()
-    }
+    // if (searchWord === '') {
+    //   fetchAllProducts()
+    // }
+    fetchAllProducts()
     fetchAllCategories()
   }, [])
 

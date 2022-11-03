@@ -1,11 +1,13 @@
 import { AxiosRequestConfig } from 'axios'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import AdminLayout from '../../../components/AdminLayout'
 import {
   deleteCategoryApi,
   getAllCategoriesApi,
+  updateCategoryApi,
 } from '../../../services/category/categoryServices'
 import { IReturnGetCategories } from '../../../services/category/types'
 
@@ -18,6 +20,26 @@ const CategoryManagement = () => {
       setCategories(res.data)
     } catch (error) {
       console.error(error)
+    }
+  }
+
+  const handleEditCategory = async (
+    categoryId: string,
+    updatedName: string
+  ) => {
+    try {
+      let token = localStorage.getItem('token')
+      const config: AxiosRequestConfig = {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+      const res = await updateCategoryApi(
+        { categoryId, name: updatedName },
+        config
+      )
+      setCategories(res.data)
+      toast('Updated!')
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -41,8 +63,15 @@ const CategoryManagement = () => {
   return (
     <AdminLayout title="User">
       <div>
-        <h1>Category List</h1>
+        <h1 className="text-2xl">Category List</h1>
         <div className="container py-10 mx-auto md:px-6">
+          <div className="text-right">
+            <Link href="/admin/category/add">
+              <button type="button" className="border px-5 my-5 bg-green-500">
+                Add
+              </button>
+            </Link>
+          </div>
           <section className="mb-20 text-gray-800">
             <div className="block rounded-lg shadow-lg bg-white">
               <div className="flex flex-col">
@@ -91,15 +120,25 @@ const CategoryManagement = () => {
                                   className="text-sm font-medium px-6 py-4 whitespace-nowrap text-left"
                                   scope="row"
                                 >
-                                  {category.name}
+                                  <input
+                                    defaultValue={category.name}
+                                    onChange={(e) => {
+                                      category.name = e.target.value
+                                    }}
+                                  />
                                 </th>
                                 <td className="text-sm font-normal px-6 py-4 whitespace-nowrap text-right">
-                                  <a
-                                    href="#!"
+                                  <button
                                     className="font-medium text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 transition duration-300 ease-in-out"
+                                    onClick={() =>
+                                      handleEditCategory(
+                                        category.categoryId,
+                                        category.name
+                                      )
+                                    }
                                   >
                                     Edit
-                                  </a>
+                                  </button>
                                 </td>
                                 <td className="text-sm font-normal px-6 py-4 whitespace-nowrap text-right">
                                   <button

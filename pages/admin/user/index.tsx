@@ -29,7 +29,7 @@ const UserManagement = () => {
   return (
     <AdminLayout title="User">
       <div>
-        <h1>User List</h1>
+        <h1 className="text-2xl">User List</h1>
         <div className="container py-10 mx-auto md:px-6">
           <section className="mb-20 text-gray-800">
             <div className="block rounded-lg shadow-lg bg-white">

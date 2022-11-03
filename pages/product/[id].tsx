@@ -2,7 +2,6 @@ import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
-import { getProductById } from '../../lib/api'
 import { IProduct } from '../../types/productType'
 import Layout from '../../components/Layout'
 import ProductOverview from '../../components/ProductOverview'

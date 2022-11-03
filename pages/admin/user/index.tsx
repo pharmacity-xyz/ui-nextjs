@@ -2,9 +2,9 @@ import { AxiosRequestConfig } from 'axios'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
-import AdminLayout from '../../components/AdminLayout'
-import { IReturnUser } from '../../services/user/types'
-import { getAllUsersApi } from '../../services/user/userServices'
+import AdminLayout from '../../../components/AdminLayout'
+import { IReturnUser } from '../../../services/user/types'
+import { getAllUsersApi } from '../../../services/user/userServices'
 
 const UserManagement = () => {
   const [users, setUsers] = useState<Array<IReturnUser>>([])
@@ -92,7 +92,7 @@ const UserManagement = () => {
                                 <td className="text-sm font-normal px-6 py-4 whitespace-nowrap text-right">
                                   <a
                                     href="#!"
-                                    className="font-medium text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 transition duration-300 ease-in-out"
+                                    className="font-medium text-gray-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 transition duration-300 ease-in-out"
                                   >
                                     Edit
                                   </a>

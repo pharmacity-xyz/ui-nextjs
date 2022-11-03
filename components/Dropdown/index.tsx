@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useState } from 'react'
 import { BiUser } from 'react-icons/bi'
 
@@ -21,14 +22,13 @@ export default function Dropdown() {
         {isOpen && (
           <div className="absolute right-0 z-10 w-56 mt-4 origin-top-right bg-white border border-gray-100 rounded-md shadow-lg">
             <div className="p-2">
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
-              >
-                Orders
-              </a>
+              <Link href="/order">
+                <a className="block px-4 py-2 text-sm text-center text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700">
+                  Orders
+                </a>
+              </Link>
               <button
-                className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
+                className="w-full block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                 onClick={logout}
               >
                 Signout

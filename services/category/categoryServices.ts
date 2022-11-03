@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios'
 import axios from '../../apis/axios'
 
 const END_POINTS = {
@@ -19,6 +20,6 @@ export const updateCategoryApi = (data) => {
   return axios.put(END_POINTS.UPDATE, data)
 }
 
-export const deleteCategoryApi = (categoryId) => {
-  return axios.delete(`${END_POINTS.DELETE}/${categoryId}`)
+export const deleteCategoryApi = (categoryId, config: AxiosRequestConfig) => {
+  return axios.delete(`${END_POINTS.DELETE}/${categoryId}`, config)
 }

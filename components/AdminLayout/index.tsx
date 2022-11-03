@@ -52,7 +52,7 @@ const AdminLayout = ({ children, title = 'Medical Equipment' }: Props) => (
                 </div>
               </li>
             </Link>
-            <Link href="/admin/category">
+            <Link href="/admin/product">
               <li className="flex w-full justify-between text-gray-300 hover:text-gray-500 cursor-pointer items-center mb-6">
                 <div className="flex items-center">
                   <span className="text-sm  ml-2">Product</span>

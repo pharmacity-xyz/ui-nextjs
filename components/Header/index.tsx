@@ -1,13 +1,21 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsCart4, BsSearch } from 'react-icons/bs'
 import { BiUser } from 'react-icons/bi'
 import { useShoppingCart } from 'use-shopping-cart'
+
 import { useAuth } from '../../context/authContextProvider'
 import Dropdown from '../Dropdown'
 
 export const Header = () => {
-  const { user } = useAuth()
+  const [userId, setUserId] = useState<string | null>(null)
+  const [token, setToken] = useState<string | null>(null)
+  // const { user } = useAuth()
+
+  useEffect(() => {
+    setUserId(localStorage.getItem('userId'))
+    setToken(localStorage.getItem('token'))
+  }, [userId, token])
 
   const { cartDetails } = useShoppingCart()
   return (
@@ -41,7 +49,7 @@ export const Header = () => {
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
         <div className="flex gap-4">
-          {user?.userId === '' && user?.token === '' ? (
+          {userId === null && token === null ? (
             <div>
               <Link href="/login">
                 <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
@@ -53,16 +61,16 @@ export const Header = () => {
           ) : (
             <>
               <Dropdown />
+              <div className="">
+                <Link href="/cart">
+                  <a className="flex text-sm px-4 py-2 leading-none border rounded text-black border-black mt-4 lg:mt-0">
+                    <BsCart4 />
+                    Cart {Object.values(cartDetails ?? {}).length}
+                  </a>
+                </Link>
+              </div>
             </>
           )}
-          <div className="">
-            <Link href="/cart">
-              <a className="flex text-sm px-4 py-2 leading-none border rounded text-black border-black mt-4 lg:mt-0">
-                <BsCart4 />
-                Cart {Object.values(cartDetails ?? {}).length}
-              </a>
-            </Link>
-          </div>
         </div>
       </div>
     </nav>

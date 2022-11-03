@@ -111,6 +111,7 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.removeItem('token')
 
     router.push('/')
+    window.location.reload()
     toast('Logged out!')
   }
 

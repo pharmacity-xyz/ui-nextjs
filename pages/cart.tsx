@@ -18,12 +18,13 @@ import { checkoutApi } from '../services/checkout/checkoutServices'
 const Cart = () => {
   const [carts, setCarts] = useState<Array<IReturnCart>>([{} as IReturnCart])
   const [totalPrice, setTotalPrice] = useState(0)
-  const { user } = useAuth()
+  // const { user } = useAuth()
 
   const fetchCarts = async () => {
     try {
+      let token = localStorage.getItem('token')
       const config: AxiosRequestConfig = {
-        headers: { Authorization: `Bearer ${user!.token}` },
+        headers: { Authorization: `Bearer ${token}` },
       }
       const res = await getCartsApi(config)
       setCarts(res.data)
@@ -43,8 +44,9 @@ const Cart = () => {
 
   const deleteCartProduct = async (productId) => {
     try {
+      let token = localStorage.getItem('token')
       const config: AxiosRequestConfig = {
-        headers: { Authorization: `Bearer ${user!.token}` },
+        headers: { Authorization: `Bearer ${token}` },
       }
       const res = await deleteCartApi(productId, config)
 
@@ -57,8 +59,9 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     try {
+      let token = localStorage.getItem('token')
       const config: AxiosRequestConfig = {
-        headers: { Authorization: `Bearer ${user!.token}` },
+        headers: { Authorization: `Bearer ${token}` },
       }
       const res = await checkoutApi(config)
 

@@ -53,7 +53,7 @@ export const Header = () => {
             <div>
               <Link href="/login">
                 <a className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0">
-                  LOGIN or SIGNUP
+                  SIGN IN or SIGN UP
                   <BiUser />
                 </a>
               </Link>

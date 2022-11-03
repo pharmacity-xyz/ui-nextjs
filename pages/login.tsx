@@ -10,20 +10,45 @@ const Login = () => {
   const [emailAddress, setEmailAddress] = useState('')
   const [password, setPassword] = useState('')
 
-  const { login } = useAuth()
+  const { login, loginError } = useAuth()
 
   return (
-    <section className="h-screen">
-      <div className="px-6 h-full text-gray-800">
-        <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-          <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-              className="w-full"
-              alt="Sample image"
-            />
+    <section className="">
+      <div className="mt-24 text-gray-800">
+        <div className="flex justify-center items-center flex-wrap g-6">
+          <div className="flex items-center flex-shrink-0 text-black my-6">
+            <svg
+              className="fill-current h-8 w-8 mr-2"
+              width="54"
+              height="54"
+              viewBox="0 0 54 54"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
+            </svg>
+            <Link href="/">
+              <span className="font-semibold text-xl tracking-tight cursor-pointer">
+                MedicalEquipmentShop
+              </span>
+            </Link>
           </div>
-          <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+        </div>
+        {loginError && (
+          <div>
+            <div className="flex justify-center items-center flex-wrap g-6 mb-5">
+              <div className="w-1/2 border p-3 border-red-500 text-center">
+                <h1 className="text-2xl text-red-500">
+                  There was a problem with your request
+                </h1>
+                <p className="text-red-500">
+                  Your email or password is incorrect
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="flex justify-center items-center flex-wrap g-6">
+          <div className="w-1/2 border p-3">
             <form>
               <div className="mb-6">
                 <input
@@ -34,7 +59,6 @@ const Login = () => {
                   onChange={(e) => setEmailAddress(e.target.value)}
                 />
               </div>
-
               <div className="mb-6">
                 <input
                   type="password"
@@ -70,10 +94,10 @@ const Login = () => {
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                   onClick={() => login(emailAddress, password)}
                 >
-                  Login
+                  SIGN IN
                 </button>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                  Don&apost have an account?
+                  Don&apos;t have an account?
                   <Link href="/register">
                     <a
                       href="#!"

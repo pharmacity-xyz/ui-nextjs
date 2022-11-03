@@ -1,10 +1,8 @@
-import { AxiosResponse } from 'axios'
 import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useReducer, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { logInApi, signUpApi } from '../services/auth/authServices'
-import { ILogInApiData, ISignUpApiData } from '../services/auth/types'
-import { LS } from '../utils/localStorage'
+import { ISignUpApiData } from '../services/auth/types'
 
 export const AUTH_ACTION = {
   LOGIN: 'LOGIN',
@@ -20,52 +18,21 @@ interface IUserData {
 
 interface IAuthContext {
   user: IUserData | null
+  loginError: boolean
   login: (emailAddress: string, pass: string) => Promise<void>
   register: (req: ISignUpApiData) => Promise<void>
   logout: () => void
 }
 
-const initialState = {
-  isLoggedIn: false,
-  member: LS.getLocalStorage('auth')?.member || {},
-  role: LS.getLocalStorage('auth')?.role || null,
-}
-
 const AuthContext = React.createContext<IAuthContext | null>(null)
 
-function authReducer(state, action) {
-  switch (action.type) {
-    case AUTH_ACTION.LOGIN:
-      return {
-        ...state,
-        isLoggedIn: true,
-        ...action.payload,
-      }
-    case AUTH_ACTION.LOGOUT:
-      return {
-        ...state,
-        isLoggedIn: false,
-        role: null,
-      }
-    case AUTH_ACTION.OPEN_MODAL:
-      return { ...state, openAuthModal: true }
-    case AUTH_ACTION.CLOSE_MODAL:
-      return { ...state, openAuthModal: false }
-    default:
-      return state
-  }
-}
-
 export const AuthContextProvider = ({ children }) => {
-  const router = useRouter()
-  const [response, setResponse] = useState<AxiosResponse<IUserData> | null>(
-    null
-  )
+  const [loginError, setLoginError] = useState(false)
   const [user, setUser] = useState<IUserData>({
     userId: '',
     token: '',
   } as IUserData)
-  const [authState, dispatch] = useReducer(authReducer, initialState)
+  const router = useRouter()
 
   const register = async (req: ISignUpApiData) => {
     try {
@@ -96,10 +63,9 @@ export const AuthContextProvider = ({ children }) => {
       localStorage.setItem('token', res.data.token)
 
       router.push('/')
-      toast('Logined!')
+      setLoginError(false)
     } catch (e) {
-      console.error(e)
-      toast('Failed!')
+      setLoginError(true)
     }
   }
 
@@ -116,7 +82,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ login, register, logout, user }}>
+    <AuthContext.Provider value={{ login, register, logout, user, loginError }}>
       {children}
     </AuthContext.Provider>
   )

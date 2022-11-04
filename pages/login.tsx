@@ -1,10 +1,6 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import { toast } from 'react-toastify'
 import { useAuth } from '../context/authContextProvider'
-
-import { logInApi } from '../services/auth/authServices'
 
 const Login = () => {
   const [emailAddress, setEmailAddress] = useState('')

@@ -6,7 +6,7 @@ function AdminIndex() {
   return (
     <AdminLayout title="Dashboard">
       <div>
-        <h1>Hello World</h1>
+        <h1>Welcome to admin page!</h1>
       </div>
     </AdminLayout>
   )

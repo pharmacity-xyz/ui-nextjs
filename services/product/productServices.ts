@@ -1,4 +1,6 @@
+import { AxiosRequestConfig } from 'axios'
 import axios from '../../apis/axios'
+import { IAddProductAPI } from './types'
 
 const END_POINTS = {
   ADD: '/product',
@@ -11,8 +13,11 @@ const END_POINTS = {
   DELETE: '/product',
 }
 
-export const addProductApi = (data) => {
-  return axios.post(END_POINTS.ADD, data)
+export const addProductApi = (
+  data: IAddProductAPI,
+  config: AxiosRequestConfig
+) => {
+  return axios.post(END_POINTS.ADD, data, config)
 }
 
 export const getAllProductsApi = () => {

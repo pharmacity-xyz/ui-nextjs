@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { useShoppingCart } from 'use-shopping-cart'
 import Counter from '../components/Counter'
 import { BsTrashFill } from 'react-icons/bs'
 
@@ -18,7 +17,6 @@ import { checkoutApi } from '../services/checkout/checkoutServices'
 const Cart = () => {
   const [carts, setCarts] = useState<Array<IReturnCart>>([{} as IReturnCart])
   const [totalPrice, setTotalPrice] = useState(0)
-  // const { user } = useAuth()
 
   const fetchCarts = async () => {
     try {
@@ -48,7 +46,7 @@ const Cart = () => {
       const config: AxiosRequestConfig = {
         headers: { Authorization: `Bearer ${token}` },
       }
-      const res = await deleteCartApi(productId, config)
+      await deleteCartApi(productId, config)
 
       await fetchCarts()
       toast('Deleted')
@@ -91,15 +89,22 @@ const Cart = () => {
             <div className="flex border-b-2 py-4" key={cart.productId}>
               <div className="w-2/6">
                 {cart.imageUrl && (
-                  <img
+                  <Image
                     src={cart.imageUrl}
                     alt={cart.productName}
-                    className="w-24"
+                    className=""
+                    width={200}
+                    height={200}
                   />
                 )}
               </div>
               <div className="w-3/6 items-center justify-end">
                 <h1 className="mb-4">{cart.productName}</h1>
+                <div className="flex justify-evenly">
+                  <button onClick={() => deleteCartProduct(cart.productId)}>
+                    <BsTrashFill className="text-2xl text-red-600" />
+                  </button>
+                </div>
               </div>
               <div className="w-1/6 flex items-center justify-end">
                 <h1>$ {cart.quantity * cart.price}</h1>

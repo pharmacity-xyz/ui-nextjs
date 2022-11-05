@@ -8,6 +8,7 @@ import { IReturnGetCategories } from '../services/category/types'
 import { IReturnProducts } from '../services/product/types'
 import {
   getAllProductsApi,
+  getProductsByCategoryApi,
   searchProductsApi,
 } from '../services/product/productServices'
 import Spinner from '../components/Spinner'
@@ -39,8 +40,23 @@ const Home = () => {
   const searchProducts = async () => {
     try {
       setLoading(true)
-      const res = await searchProductsApi(searchWord)
-      setProducts(res.data.products)
+      if (searchWord === '') {
+        fetchAllProducts()
+      } else {
+        const res = await searchProductsApi(searchWord)
+        setProducts(res.data.products)
+      }
+      setLoading(false)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const searchProductsByCategory = async (categoryId: string) => {
+    try {
+      setLoading(true)
+      const res = await getProductsByCategoryApi(categoryId)
+      setProducts(res.data)
       setLoading(false)
     } catch (error) {
       console.error(error)
@@ -48,9 +64,6 @@ const Home = () => {
   }
 
   useEffect(() => {
-    // if (searchWord === '') {
-    //   fetchAllProducts()
-    // }
     fetchAllProducts()
     fetchAllCategories()
   }, [])
@@ -74,6 +87,9 @@ const Home = () => {
                       <button
                         key={category.categoryId}
                         className="mx-3 px-3 h-8 border rounded-md border-black"
+                        onClick={() =>
+                          searchProductsByCategory(category.categoryId)
+                        }
                       >
                         {category.name}
                       </button>
@@ -121,7 +137,7 @@ const Home = () => {
                           >
                             <div>
                               {product.imageUrl && (
-                                <img
+                                <Image
                                   src={product.imageUrl}
                                   alt={product.productName}
                                   width={300}

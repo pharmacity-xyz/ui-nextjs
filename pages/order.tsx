@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios'
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import { getOrdersApi } from '../services/order/orderServices'
@@ -32,10 +33,12 @@ const Order = () => {
           <div className="flex border-b-2 py-4" key={order.id}>
             <div className="w-2/6">
               {order.productImageUrl && (
-                <img
+                <Image
                   src={order.productImageUrl}
                   alt={order.product}
                   className="w-24"
+                  width={300}
+                  height={300}
                 />
               )}
             </div>

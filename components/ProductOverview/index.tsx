@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios'
+import Image from 'next/image'
 import React from 'react'
 import { toast } from 'react-toastify'
 import { useShoppingCart } from 'use-shopping-cart'
@@ -36,10 +37,11 @@ const ProductOverview = ({ product }: { product: IReturnProducts }) => {
       <div className="pt-6">
         <div className="mx-auto mt-6 max-w-2xl">
           <div className="rounded-lg flex justify-center">
-            <img
+            <Image
               src={product.imageUrl}
               alt="Two each of gray, white, and black shirts laying flat."
-              className="w-72 h-72 object-cover object-center"
+              width={300}
+              height={300}
             />
           </div>
         </div>

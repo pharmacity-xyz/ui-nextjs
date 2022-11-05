@@ -35,11 +35,11 @@ const ProductOverview = ({ product }: { product: IReturnProducts }) => {
     <div className="bg-white">
       <div className="pt-6">
         <div className="mx-auto mt-6 max-w-2xl">
-          <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
+          <div className="rounded-lg flex justify-center">
             <img
               src={product.imageUrl}
               alt="Two each of gray, white, and black shirts laying flat."
-              className="object-cover object-center"
+              className="w-72 h-72 object-cover object-center"
             />
           </div>
         </div>
@@ -131,16 +131,10 @@ const ProductOverview = ({ product }: { product: IReturnProducts }) => {
                   </svg>
                 </div>
                 <p className="sr-only">4 out of 5 stars</p>
-                <a
-                  href="#"
-                  className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  117 reviews
-                </a>
               </div>
             </div>
             <button
-              className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               onClick={() => handleAddCart()}
             >
               Add to cart

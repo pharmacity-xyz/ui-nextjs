@@ -13,9 +13,6 @@ export const Footer = () => {
             </h2>
             <ul className="text-gray-600 dark:text-gray-400">
               <li className="mb-4 hover:underline">
-                <Link href="/">Pharmacity</Link>
-              </li>
-              <li className="mb-4 hover:underline">
                 <Link href="/about">About</Link>
               </li>
               <li className="mb-4 hover:underline">
@@ -58,11 +55,7 @@ export const Footer = () => {
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2022{' '}
-          <Link href="/" className="hover:underline">
-            Pharmacity
-          </Link>
-          . All Rights Reserved.
+          © 2022 . All Rights Reserved.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a

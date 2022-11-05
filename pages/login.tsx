@@ -13,18 +13,9 @@ const Login = () => {
       <div className="mt-24 text-gray-800">
         <div className="flex justify-center items-center flex-wrap g-6">
           <div className="flex items-center flex-shrink-0 text-black my-6">
-            <svg
-              className="fill-current h-8 w-8 mr-2"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-            </svg>
             <Link href="/">
               <span className="font-semibold text-xl tracking-tight cursor-pointer">
-                MedicalEquipmentShop
+                BookShop
               </span>
             </Link>
           </div>
@@ -85,24 +76,28 @@ const Login = () => {
               </div>
 
               <div className="text-center lg:text-left">
-                <button
-                  type="button"
-                  className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  onClick={() => login(emailAddress, password)}
-                >
-                  SIGN IN
-                </button>
-                <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                  Don&apos;t have an account?
-                  <Link href="/register">
-                    <a
-                      href="#!"
-                      className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                    >
-                      Register
-                    </a>
-                  </Link>
-                </p>
+                <div className="flex justify-center">
+                  <button
+                    type="button"
+                    className="inline-block px-7 py-3 bg-green-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    onClick={() => login(emailAddress, password)}
+                  >
+                    SIGN IN
+                  </button>
+                </div>
+                <div className="flex justify-center">
+                  <p className="text-sm font-semibold mt-2 pt-1 mb-0">
+                    Don&apos;t have an account?
+                    <Link href="/register">
+                      <a
+                        href="#!"
+                        className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+                      >
+                        Register
+                      </a>
+                    </Link>
+                  </p>
+                </div>
               </div>
             </form>
           </div>

@@ -14,7 +14,7 @@ export default function Dropdown() {
       <div className="relative">
         <button
           type="button"
-          className="flex text-sm px-4 py-2 leading-none bg-[#52BA2D] border rounded text-black border-black mt-4 lg:mt-0"
+          className="flex text-sm px-4 py-2 leading-none bg-blue-400 border rounded text-black border-black mt-4 lg:mt-0"
           onClick={() => setIsOpen(!isOpen)}
         >
           <BiUser />

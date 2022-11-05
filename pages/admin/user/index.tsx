@@ -56,13 +56,13 @@ const UserManagement = () => {
                               scope="col"
                               className="text-white text-sm font-medium px-6 py-4"
                             >
-                              Country
+                              COUNTRY
                             </th>
                             <th
                               scope="col"
                               className="text-white text-sm font-medium px-6 py-4"
                             >
-                              Company
+                              COMPANY
                             </th>
                             <th
                               scope="col"

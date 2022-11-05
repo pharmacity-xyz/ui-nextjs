@@ -56,6 +56,7 @@ const Home = () => {
     try {
       setLoading(true)
       const res = await getProductsByCategoryApi(categoryId)
+      console.log(res)
       setProducts(res.data)
       setLoading(false)
     } catch (error) {

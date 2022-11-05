@@ -100,12 +100,6 @@ const Cart = () => {
               </div>
               <div className="w-3/6 items-center justify-end">
                 <h1 className="mb-4">{cart.productName}</h1>
-                <div className="flex justify-evenly">
-                  <Counter id={cart.productId} quantity={cart.quantity} />
-                  <button onClick={() => deleteCartProduct(cart.productId)}>
-                    <BsTrashFill className="text-2xl text-red-600" />
-                  </button>
-                </div>
               </div>
               <div className="w-1/6 flex items-center justify-end">
                 <h1>$ {cart.quantity * cart.price}</h1>
@@ -122,37 +116,14 @@ const Cart = () => {
               Subtotal ({carts.length} items): ${totalPrice}
             </h1>
             <button
-              className="bg-yellow-400 p-2 rounded-md w-full mb-4"
+              className="bg-green-400 p-2 rounded-md w-full mb-4"
               onClick={() => handleCheckout()}
               disabled={carts.length < 1}
             >
               Proceed to checkout
             </button>
-            <button
-              className="bg-red-400 p-2 rounded-md w-full"
-              // disabled={carts.length < 1}
-              disabled
-            >
-              Clear cart
-            </button>
           </div>
         </div>
-      </div>
-      <div className="my-20">
-        <div className="my-10">
-          <div className="flex justify-between items-center px-8">
-            <h2 className="text-3xl">
-              <strong className="text-[#75b239]">Featured Products</strong>
-            </h2>
-            <Link href="/">
-              <a className="hover:underline">See all</a>
-            </Link>
-          </div>
-          <div className="px-8 py-6">
-            <hr />
-          </div>
-        </div>
-        <FeaturedProductsSlider />
       </div>
     </Layout>
   )

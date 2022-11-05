@@ -33,7 +33,7 @@ const AdminLayout = ({ children, title = 'Medical Equipment' }: Props) => (
           <div className="h-16 w-full flex items-center">
             <Link href="/">
               <span className="font-semibold text-xl tracking-tight cursor-pointer text-white">
-                MedicalEquipmentShop
+                BookShop
               </span>
             </Link>
           </div>
